@@ -1,0 +1,14 @@
+
+„javascript:S2703'"aAdd the "let", "const" or "var" keyword to this declaration of "botResponse" to make it explicit.(¾³ºğ8 ŸßÉ¸1
+wjavascript:S37763"TRefactor this function to reduce its Cognitive Complexity from 97 to the 15 allowed.(´Ñáì8 ŸßÉ¸1
+tjavascript:S4138G"LExpected a `for-of` loop instead of a `for` loop with this simple iteration.(‰‘Ùšıÿÿÿÿ8¡ŸßÉ¸1
+rjavascript:S6653I"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(ÕÛÆ¾ÿÿÿÿÿ8¡ŸßÉ¸1
+Ajavascript:S125k"Remove this commented out code.(æ¿‰İ8¡ŸßÉ¸1
+gjavascript:S6660o"?'If' statement should not be the only statement in 'else' block(¯š·£şÿÿÿÿ8¡ŸßÉ¸1
+sjavascript:S6653"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(ü¶„üÿÿÿÿ8¡ŸßÉ¸1
+sjavascript:S6653Š"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(Çûğ•ùÿÿÿÿ8¡ŸßÉ¸1
+njavascript:S6653‘"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(˜¿ø•8¡ŸßÉ¸1
+njavascript:S6653"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(â¸¢8¡ŸßÉ¸1
+njavascript:S6653´"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(‚°‘8¡ŸßÉ¸1
+njavascript:S6653Ú"JUse 'Object.hasOwn()' instead of 'Object.prototype.hasOwnProperty.call()'.(‰§Ş8¡ŸßÉ¸1
+djavascript:S3516§";Refactor this function to not always return the same value.(ğ‘¢ñÿÿÿÿÿ8¢ŸßÉ¸1

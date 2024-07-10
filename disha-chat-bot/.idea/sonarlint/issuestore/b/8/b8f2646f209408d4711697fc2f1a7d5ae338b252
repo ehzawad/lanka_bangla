@@ -1,0 +1,13 @@
+
+6python:S125"Remove this commented out code.(ë‡Ú“
+;python:S125$"Remove this commented out code.(½‘Â¤şÿÿÿÿ
+lpython:S15427"ORename function "getNumber" to match the regular expression ^[a-z_][a-z0-9_]*$.( Òôøşÿÿÿÿ
+qpython:S37767"TRefactor this function to reduce its Cognitive Complexity from 17 to the 15 allowed.( Òôøşÿÿÿÿ
+jpython:S4487["RRemove this unread private attribute '__pc' or refactor the code to use its value.(¨¯Ê
+?python:S1481Æ"&Remove the unused local variable "br".(ÆãÄÇ
+Jpython:S1481Ã",Remove the unused local variable "bot_resp".(’À‘Âşÿÿÿÿ
+rpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 23 to the 15 allowed.(‚›ªøÿÿÿÿ
+7python:S125‘"Remove this commented out code.(÷Áõ
+cpython:S3457¶"EAdd replacement fields or use a normal string instead of an f-string.(ŒÍŞÖùÿÿÿÿ
+<python:S125Ç"Remove this commented out code.(¡º×ùÿÿÿÿ
+6python:S125Œ"Remove this commented out code.(—‚Ÿ'

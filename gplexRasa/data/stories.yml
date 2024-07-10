@@ -1,0 +1,118 @@
+version: "3.1"
+
+stories:
+
+- story: Services
+  steps:
+  - intent: greet
+  - action: utter_atStart
+  - or:
+    - intent: our_services
+    - intent: demo
+    - intent: solution
+    - intent: about_us
+    - intent: exit
+  - action: action_options1
+  - or:
+    - intent: banking
+    - intent: insurance
+    - intent: contact_centre_ai
+    - intent: other
+    - intent: voice
+    - intent: messaging
+    - intent: contact_center
+    - intent: exit
+  - action: action_options2
+  - or:
+    - intent: chatbot
+    - intent: voicebot_disha
+    - intent: inbound
+    - intent: outbound
+    - intent: reporting
+    - intent: speech_to_text
+    - intent: text_to_speech
+    - intent: voice_assistant
+    - intent: ai_chatbot
+  - action: action_options3
+  - or:
+    - intent: fintech
+    - intent: telecom
+    - intent: software
+    - intent: acd
+    - intent: ivr
+    - intent: sivr
+    - intent: cti
+    - intent: predictive_dialer
+    - intent: progressive_dialer
+    - intent: auto_dialer
+    - intent: call_blaster
+    - intent: dashboard
+    - intent: wallboard
+    - intent: unified_reporting
+    - intent: other_report
+  - action: action_options4
+
+
+- story: talk to llm
+  steps:
+  - intent: talkToLLm
+  - action: action_utter_talkllm
+
+- story: where is location
+  steps:
+  - intent: location
+  - action: action_utter_location
+
+- story: about ceo
+  steps:
+  - intent: ceo
+  - action: action_utter_ceo
+
+- story: about services_or_products
+  steps:
+  - intent: services_or_products
+  - action: action_utter_services_or_products
+
+
+- story: about use_cases of the products/services
+  steps:
+  - intent: use_cases
+  - action: action_utter_use_cases
+
+- story: the reason of choosing gplex ai
+  steps:
+  - intent: why_choose_gplex
+  - action: action_utter_why_choose_gplex
+
+- story: give info about our clients
+  steps:
+  - intent: about_clients
+  - action: action_utter_about_clients
+
+- story: provide info about client feedback
+  steps:
+  - intent: client_feedback 
+  - action: action_utter_client_feedback 
+
+
+- story: provide info about contact info
+  steps:
+  - intent: contact_info  
+  - action: action_utter_contact_info 
+
+- story: provide info about the technologies used
+  steps:
+  - intent: used_technology   
+  - action: actio_utter_used_technology 
+  
+
+
+
+  # - action: talk_to_llm_form
+  # - active_loop: talk_to_llm_form
+  # - slot_was_set:
+  #   - requested_slot: end_llm
+  # - active_loop: null
+  
+
+

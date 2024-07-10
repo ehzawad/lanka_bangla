@@ -1,0 +1,2 @@
+conda activate rasa
+python -m http.server -b 157.230.89.26
