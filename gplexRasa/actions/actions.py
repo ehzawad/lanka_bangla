@@ -6,6 +6,8 @@ from rasa_sdk.events import FollowupAction
 from rasa_sdk.types import DomainDict
 import requests
 
+
+
 class Action_Otions1(Action):
 
     def name(self) -> Text:
@@ -15,14 +17,14 @@ class Action_Otions1(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        if tracker.get_intent_of_latest_message() == "our_services":
-            dispatcher.utter_message(response="utter_our_services")
+        if tracker.get_intent_of_latest_message() == "main_node":
+            dispatcher.utter_message(response="utter_main_node")
 
         elif tracker.get_intent_of_latest_message() == "demo":
             return [FollowupAction("detail_form")]
         
-        elif tracker.get_intent_of_latest_message() == "solution":
-            dispatcher.utter_message(response="utter_solution")
+        elif tracker.get_intent_of_latest_message() == "product_information":
+            dispatcher.utter_message(response="utter_product_information")
 
         elif tracker.get_intent_of_latest_message() == "about_us":
             dispatcher.utter_message(response="utter_about_us")

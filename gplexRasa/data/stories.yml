@@ -7,11 +7,15 @@ stories:
   - intent: greet
   - action: utter_atStart
   - or:
-    - intent: our_services
-    - intent: demo
-    - intent: solution
-    - intent: about_us
-    - intent: exit
+    - intent: main_node
+    - intent: product_information
+    - intent: read_privacy_policy
+    # - intent: our_services
+    # - intent: demo
+    # - intent: solution
+    # - intent: about_us
+    # - intent: exit
+
   - action: action_options1
   - or:
     - intent: banking
@@ -22,6 +26,7 @@ stories:
     - intent: messaging
     - intent: contact_center
     - intent: exit
+
   - action: action_options2
   - or:
     - intent: chatbot

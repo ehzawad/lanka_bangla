@@ -24,12 +24,91 @@ nlu:
     - Please tell me
     - Please
 
+- intent: read_privacy_policy
+  examples: |
+    - I want to read the privacy policy
+    - I want to know about the privacy policy
+
+- intent: main_node
+  examples: |
+    - I want to know about your services
+    - I want to know about your products
+    - I want to know about your company
+    - I want to know about your ceo
+    - I want to know about your clients
+    - I want to know about your client feedback
+    - I want to know about your contact info
+    - I want to know about the technology you use
+    - I want to know about the location of your office
+    - I want to know why should I choose you
+    - I want to know about the use cases of your products
+    - I want to know about the services you provide
+
+- intent: product_information
+  examples: |
+    - I want to know about your products
+    - I want to know about the products you sell
+    - I want to know about the products you provide
+    - I want to know about the products you offer
+
+- intent: existing_customer
+  examples: |
+    - I am an existing customer
+    - I am a customer
+    - I am a client
+    - I am a user
+    - I am a user of your products
+    - I am a user of your services
+    - I am a user of your company
+    - I am a user of your services
+    - I am a user of your products
+    - I am a user of your services
+    - I am a user of your company
+
+- intent: new_customer
+  examples: |
+    - I am a new customer
+    - I am a new user
+    - I am a new client
+    - I am a new user of your products
+    - I am a new user of your services
+
 - intent: deny
   examples: |
     - No
     - Dont
     - No I dont want
     - Nop
+
+- intent: credit_card
+  examples: |
+    - I want to know about the credit card
+    - I want to know about the credit card service
+    - I want to know about the credit card service you provide
+    - I want to know about the credit card service you offer
+
+- intent: deposit
+  examples: |
+    - I want to know about the deposit
+    - I want to know about the deposit service
+    - I want to know about the deposit service you provide
+    - I want to know about the deposit service you offer
+
+- intent: loan
+  examples: |
+    - I want to know about the loan
+    - I want to know about the loan service
+    - I want to know about the loan service you provide
+    - I want to know about the loan service you offer
+
+- intent: apply_now
+  examples: |
+    - I want to apply now
+    - I want to apply for the service
+    - I want to apply for the product
+    - I want to apply for the loan
+    - I want to apply for the credit card
+    - I want to apply for the deposit
 
 - intent: talkToLLm
   examples: |

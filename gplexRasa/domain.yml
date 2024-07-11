@@ -50,6 +50,11 @@ intents:
   - contact_info
   - used_technology
   - contact_centre_ai
+  - main_node
+  - product_information
+  - read_privacy_policy
+  - existing_customer
+  - new_customer
   
 actions:
   - action_options1
@@ -75,20 +80,46 @@ responses:
   - text: "Hey! How are you?"
 
   utter_atStart:
-  - text: "Hi there, Welcome to gPlex AI! Nice to meet you. I'd love to help you out:
-What would you like to know? Choose one of the options below:"
+  - text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
     buttons:
-    - title: "Explore our products and solutions"
-      payload: "/our_services"
-    - title: "I would like to see a demo"
-      payload: "/demo"
-    - title: "Help me with a solution for my business"
-      payload: "/solution"
-    - title: "About Us"
-      payload: "/about_us"
-    - title: "Exit"
-      payload: "/exit"
+    - title: "Read privacy policy"
+      payload: "/read_privacy_policy"
+    - title: "Agree"
+      payload: "/main_node"
+    - title: "Disagree"
+      payload: "/product_information"
   
+  utter_read_privacy_policy:
+  - text: "You can read our privacy policy here: https://www.lankabangla.com/privacy-policy/"
+
+  utter_main_node:
+  - text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
+    buttons:
+    - title: "customer account information"
+      payload: "/existing_customer"
+    - title: "general information"
+      payload: "/new_customer"
+    - title: "home"
+      payload: "/greet"
+
+  utter_product_information:
+  - text: "product information"
+
+
+  utter_existing_customer:
+  - text: "please select your product type"
+    buttons:
+    - title: "credit card"
+      payload: "/credit_card"
+    - title: "deposit"
+      payload: "/deposit"
+    - title: "Loan"
+      payload: "/loan"
+    - title: "apply now"
+      payload: "/apply_now"
+    - title: "go back"
+      payload: "/main_node"
+
   utter_solution:
   - text: "We would love to help you please select an option"
     buttons:
