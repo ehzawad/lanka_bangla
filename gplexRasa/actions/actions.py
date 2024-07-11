@@ -7,6 +7,15 @@ from rasa_sdk.types import DomainDict
 import requests
 
 
+#   - main_node
+#   - product_information
+#   - read_privacy_policy
+#   - existing_customer
+#   - new_customer
+#   - credit_card
+#   - deposit
+#   - loan
+#   - apply_now
 
 class Action_Otions1(Action):
 
@@ -31,6 +40,28 @@ class Action_Otions1(Action):
 
         elif tracker.get_intent_of_latest_message() == "exit":
             dispatcher.utter_message(text="Thank you have a good day!")
+
+        elif tracker.get_intent_of_latest_message() == "read_privacy_policy":
+            dispatcher.utter_message(response="utter_read_privacy_policy")
+
+        elif tracker.get_intent_of_latest_message() == "existing_customer":
+            print("existing_customer intent actions")
+            dispatcher.utter_message(response="utter_existing_customer")
+
+        elif tracker.get_intent_of_latest_message() == "new_customer":
+            dispatcher.utter_message(response="utter_new_customer")
+
+        elif tracker.get_intent_of_latest_message() == "credit_card":
+            dispatcher.utter_message(response="utter_credit_card")
+
+        elif tracker.get_intent_of_latest_message() == "deposit":
+            dispatcher.utter_message(response="utter_deposit")
+
+        elif tracker.get_intent_of_latest_message() == "loan":
+            dispatcher.utter_message(response="utter_loan")
+
+        elif tracker.get_intent_of_latest_message() == "apply_now":
+            dispatcher.utter_message(response="utter_apply_now")
         
 
 

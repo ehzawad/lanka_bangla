@@ -10,6 +10,12 @@ stories:
     - intent: main_node
     - intent: product_information
     - intent: read_privacy_policy
+    - intent: credit_card
+    - intent: deposit
+    - intent: loan
+    - intent: apply_now
+    - intent: existing_customer
+    - intent: new_customer
     # - intent: our_services
     # - intent: demo
     # - intent: solution
@@ -17,98 +23,98 @@ stories:
     # - intent: exit
 
   - action: action_options1
-  - or:
-    - intent: banking
-    - intent: insurance
-    - intent: contact_centre_ai
-    - intent: other
-    - intent: voice
-    - intent: messaging
-    - intent: contact_center
-    - intent: exit
+  # - or:
+  #   - intent: banking
+  #   - intent: insurance
+  #   - intent: contact_centre_ai
+  #   - intent: other
+  #   - intent: voice
+  #   - intent: messaging
+  #   - intent: contact_center
+  #   - intent: exit
 
-  - action: action_options2
-  - or:
-    - intent: chatbot
-    - intent: voicebot_disha
-    - intent: inbound
-    - intent: outbound
-    - intent: reporting
-    - intent: speech_to_text
-    - intent: text_to_speech
-    - intent: voice_assistant
-    - intent: ai_chatbot
-  - action: action_options3
-  - or:
-    - intent: fintech
-    - intent: telecom
-    - intent: software
-    - intent: acd
-    - intent: ivr
-    - intent: sivr
-    - intent: cti
-    - intent: predictive_dialer
-    - intent: progressive_dialer
-    - intent: auto_dialer
-    - intent: call_blaster
-    - intent: dashboard
-    - intent: wallboard
-    - intent: unified_reporting
-    - intent: other_report
-  - action: action_options4
-
-
-- story: talk to llm
-  steps:
-  - intent: talkToLLm
-  - action: action_utter_talkllm
-
-- story: where is location
-  steps:
-  - intent: location
-  - action: action_utter_location
-
-- story: about ceo
-  steps:
-  - intent: ceo
-  - action: action_utter_ceo
-
-- story: about services_or_products
-  steps:
-  - intent: services_or_products
-  - action: action_utter_services_or_products
+  # - action: action_options2
+#   - or:
+#     - intent: chatbot
+#     - intent: voicebot_disha
+#     - intent: inbound
+#     - intent: outbound
+#     - intent: reporting
+#     - intent: speech_to_text
+#     - intent: text_to_speech
+#     - intent: voice_assistant
+#     - intent: ai_chatbot
+#   - action: action_options3
+#   - or:
+#     - intent: fintech
+#     - intent: telecom
+#     - intent: software
+#     - intent: acd
+#     - intent: ivr
+#     - intent: sivr
+#     - intent: cti
+#     - intent: predictive_dialer
+#     - intent: progressive_dialer
+#     - intent: auto_dialer
+#     - intent: call_blaster
+#     - intent: dashboard
+#     - intent: wallboard
+#     - intent: unified_reporting
+#     - intent: other_report
+#   - action: action_options4
 
 
-- story: about use_cases of the products/services
-  steps:
-  - intent: use_cases
-  - action: action_utter_use_cases
+# - story: talk to llm
+#   steps:
+#   - intent: talkToLLm
+#   - action: action_utter_talkllm
 
-- story: the reason of choosing gplex ai
-  steps:
-  - intent: why_choose_gplex
-  - action: action_utter_why_choose_gplex
+# - story: where is location
+#   steps:
+#   - intent: location
+#   - action: action_utter_location
 
-- story: give info about our clients
-  steps:
-  - intent: about_clients
-  - action: action_utter_about_clients
+# - story: about ceo
+#   steps:
+#   - intent: ceo
+#   - action: action_utter_ceo
 
-- story: provide info about client feedback
-  steps:
-  - intent: client_feedback 
-  - action: action_utter_client_feedback 
+# - story: about services_or_products
+#   steps:
+#   - intent: services_or_products
+#   - action: action_utter_services_or_products
 
 
-- story: provide info about contact info
-  steps:
-  - intent: contact_info  
-  - action: action_utter_contact_info 
+# - story: about use_cases of the products/services
+#   steps:
+#   - intent: use_cases
+#   - action: action_utter_use_cases
 
-- story: provide info about the technologies used
-  steps:
-  - intent: used_technology   
-  - action: actio_utter_used_technology 
+# - story: the reason of choosing gplex ai
+#   steps:
+#   - intent: why_choose_gplex
+#   - action: action_utter_why_choose_gplex
+
+# - story: give info about our clients
+#   steps:
+#   - intent: about_clients
+#   - action: action_utter_about_clients
+
+# - story: provide info about client feedback
+#   steps:
+#   - intent: client_feedback 
+#   - action: action_utter_client_feedback 
+
+
+# - story: provide info about contact info
+#   steps:
+#   - intent: contact_info  
+#   - action: action_utter_contact_info 
+
+# - story: provide info about the technologies used
+#   steps:
+#   - intent: used_technology   
+#   - action: actio_utter_used_technology 
   
 
 

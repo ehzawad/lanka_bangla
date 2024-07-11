@@ -2,10 +2,10 @@ version: "3.1"
 
 rules:
 
-- rule: detail_form_end
-  condition:
-  - active_loop:  detail_form
-  steps:
-  - action: detail_form
-  - active_loop: null
-  - action: action_end_detail_form
+# - rule: detail_form_end
+#   condition:
+#   - active_loop:  detail_form
+#   steps:
+#   - action: detail_form
+#   - active_loop: null
+#   - action: action_end_detail_form

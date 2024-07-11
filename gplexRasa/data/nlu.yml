@@ -31,47 +31,32 @@ nlu:
 
 - intent: main_node
   examples: |
-    - I want to know about your services
-    - I want to know about your products
-    - I want to know about your company
-    - I want to know about your ceo
-    - I want to know about your clients
-    - I want to know about your client feedback
-    - I want to know about your contact info
-    - I want to know about the technology you use
-    - I want to know about the location of your office
-    - I want to know why should I choose you
-    - I want to know about the use cases of your products
-    - I want to know about the services you provide
+    - main node
+    - this is a main node
+    - main menu
+    - haha main node
+
 
 - intent: product_information
   examples: |
     - I want to know about your products
-    - I want to know about the products you sell
-    - I want to know about the products you provide
-    - I want to know about the products you offer
+
 
 - intent: existing_customer
   examples: |
     - I am an existing customer
-    - I am a customer
-    - I am a client
-    - I am a user
-    - I am a user of your products
-    - I am a user of your services
-    - I am a user of your company
-    - I am a user of your services
-    - I am a user of your products
-    - I am a user of your services
-    - I am a user of your company
+    - existing customer I am
+    - oh ho existing customer
+    - haha existing customer
+    - well existing customer
+    - existing customer
 
 - intent: new_customer
   examples: |
     - I am a new customer
-    - I am a new user
-    - I am a new client
-    - I am a new user of your products
-    - I am a new user of your services
+    - well new customer
+    - new customer I am
+    - oh ho new customer
 
 - intent: deny
   examples: |
@@ -83,170 +68,170 @@ nlu:
 - intent: credit_card
   examples: |
     - I want to know about the credit card
-    - I want to know about the credit card service
-    - I want to know about the credit card service you provide
-    - I want to know about the credit card service you offer
+    - credit card
+    - credit card is important
+    - ok credit card
+
 
 - intent: deposit
   examples: |
     - I want to know about the deposit
-    - I want to know about the deposit service
-    - I want to know about the deposit service you provide
-    - I want to know about the deposit service you offer
+    - yes deposit
+    - no deposit
+    - hell yeah deposit
 
 - intent: loan
   examples: |
     - I want to know about the loan
     - I want to know about the loan service
-    - I want to know about the loan service you provide
-    - I want to know about the loan service you offer
+    - loan is important
+    - why loan man
 
 - intent: apply_now
   examples: |
     - I want to apply now
     - I want to apply for the service
-    - I want to apply for the product
-    - I want to apply for the loan
-    - I want to apply for the credit card
-    - I want to apply for the deposit
+    - now apply
+    - apply now
 
-- intent: talkToLLm
-  examples: |
-    - I want to tallk to your LLM
-    - llm er shate kotha bolbo
-    - llm er kache transfer koren
-    - I want to talk to the llm
-    - llm er kache den
-    - 123_hello how are you
-    - 123_hi
-    - 123_who is the prime minister of bangladesh
-    - 123_capital of dhaka?
-    - 123_what is inbound call?
-    - 123_what is Gplex Ai Voicebot
-    - 123_whatsup
-    - 123_if there are 2 apples 1 i is lost how many left?
-    - 123_i have 100000 taka and I want only the outbound service is it possible?
-    - 123_can you show demo of you inbound?
-    - 123_ i want to see demo
-    - 123_ show me the demo if outbound call
-    - 123_ tell me more about your company
-    - 123_tell me more about gsl
 
-- intent: location
-  examples: |
-    - where are you located
-    - whats the location
-    - where should I find your office
-    - where is your office
-    - tell me about your location
-    - where can i locate you
-    - where is your office situated
-    - tell me about the address of your office
-    - what is your address
-    - tell me about the address of your office
-    - where can i find the office
-    - where to find you
-    - at which place can i find your office
-    - tell me about the place of your office
-    - give me your office address
-    - give me your office location
+# - intent: talkToLLm
+#   examples: |
+#     - I want to tallk to your LLM
+#     - llm er shate kotha bolbo
+#     - llm er kache transfer koren
+#     - I want to talk to the llm
+#     - llm er kache den
+#     - 123_hello how are you
+#     - 123_hi
+#     - 123_who is the prime minister of bangladesh
+#     - 123_capital of dhaka?
+#     - 123_what is inbound call?
+#     - 123_what is Gplex Ai Voicebot
+#     - 123_whatsup
+#     - 123_if there are 2 apples 1 i is lost how many left?
+#     - 123_i have 100000 taka and I want only the outbound service is it possible?
+#     - 123_can you show demo of you inbound?
+#     - 123_ i want to see demo
+#     - 123_ show me the demo if outbound call
+#     - 123_ tell me more about your company
+#     - 123_tell me more about gsl
 
-- intent: ceo
-  examples: |
-    - who is your ceo
-    - telll me your ceo's name
-    - whats the name of the ceo
-    - can you tell me the name of the ceo
-    - i want to know the ceo name
-    - tell me about your ceo
-    - give me the name of the ceo
-    - whats the name of the ceo of the company
-    - tell me about ceo of the company
+# - intent: location
+#   examples: |
+#     - where are you located
+#     - whats the location
+#     - where should I find your office
+#     - where is your office
+#     - tell me about your location
+#     - where can i locate you
+#     - where is your office situated
+#     - tell me about the address of your office
+#     - what is your address
+#     - tell me about the address of your office
+#     - where can i find the office
+#     - where to find you
+#     - at which place can i find your office
+#     - tell me about the place of your office
+#     - give me your office address
+#     - give me your office location
 
-- intent: services_or_products
-  examples: |
-    - what services do you provide
-    - i wanna know about the services you provide
-    - tell me about your services
-    - what are the products sold by the company
-    - what type of products do you sell
-    - services provided by the company?
-    - what services do you offer?
-    - tell me about the services i can get from the company
-    - what services can i get here
-    - tell me about the products i can get here 
+# - intent: ceo
+#   examples: |
+#     - who is your ceo
+#     - telll me your ceo's name
+#     - whats the name of the ceo
+#     - can you tell me the name of the ceo
+#     - i want to know the ceo name
+#     - tell me about your ceo
+#     - give me the name of the ceo
+#     - whats the name of the ceo of the company
+#     - tell me about ceo of the company
 
-- intent: use_cases
-  examples: |
-    - where can i use your products
-    - tell me about the products usage
-    - how can i use these services
-    - where can i implements these services
-    - what are the usage of the products 
-    - tell me about the usefulness about your services
-    - can you give me example of usage of the products
-    - tell me about the use cases of these services 
+# - intent: services_or_products
+#   examples: |
+#     - what services do you provide
+#     - i wanna know about the services you provide
+#     - tell me about your services
+#     - what are the products sold by the company
+#     - what type of products do you sell
+#     - services provided by the company?
+#     - what services do you offer?
+#     - tell me about the services i can get from the company
+#     - what services can i get here
+#     - tell me about the products i can get here 
 
-- intent: why_choose_gplex
-  examples: |
-    - why should i choose you
-    - convince me to choose gplex ai
-    - give me reasons to buy your products
-    - what are the reasons to choose you
-    - why should i pick gplex products
-    - tell me about the benefits of choosing your services
-    - why should i consider gplex ai and not other companies
-    - what makes you a better fit for me to choose over others
-    - why should i buy your products
-    - what are the benefits of choosing gplex ai
-    - what benefits can gplex ai provide me
+# - intent: use_cases
+#   examples: |
+#     - where can i use your products
+#     - tell me about the products usage
+#     - how can i use these services
+#     - where can i implements these services
+#     - what are the usage of the products 
+#     - tell me about the usefulness about your services
+#     - can you give me example of usage of the products
+#     - tell me about the use cases of these services 
 
-- intent: about_clients
-  examples: |
-    - tell my about the companies you provide service
-    - tell me about your clients
-    - who are your clients
-    - what are the companies you work with
-    - tell me the name of theclients who selected you
-    - whom have you provided services
-    - which companies selected you
-    - which companies took your services
-    - name of the companies that selected you
+# - intent: why_choose_gplex
+#   examples: |
+#     - why should i choose you
+#     - convince me to choose gplex ai
+#     - give me reasons to buy your products
+#     - what are the reasons to choose you
+#     - why should i pick gplex products
+#     - tell me about the benefits of choosing your services
+#     - why should i consider gplex ai and not other companies
+#     - what makes you a better fit for me to choose over others
+#     - why should i buy your products
+#     - what are the benefits of choosing gplex ai
+#     - what benefits can gplex ai provide me
 
-- intent: client_feedback
-  examples: |
-    - what feedbacks did you receive from you clients
-    - were the received product feedbaks good?  
-    - were the customers satisfied with your services
-    - how were the customers feedback?
-    - have you received positive feedback from your clients?
-    - what do your clients say about your products
-    - how were the customers response to your products?
-    - give me the received feedback of the products
-    - can you tell me about the customer testimonials?
-    - what were the customer testimonials?
+# - intent: about_clients
+#   examples: |
+#     - tell my about the companies you provide service
+#     - tell me about your clients
+#     - who are your clients
+#     - what are the companies you work with
+#     - tell me the name of theclients who selected you
+#     - whom have you provided services
+#     - which companies selected you
+#     - which companies took your services
+#     - name of the companies that selected you
 
-- intent: contact_info
-  examples: |
-    - how can i contact you?
-    - give me your contact info
-    - how can i reach you?
-    - how to reach you?
-    - how to cantact you?
-    - what are your contact details?
-    - how to get in touch with gplex ai?
-    - can you share me your customer support contact details?
-    - tell me the way to reach you
+# - intent: client_feedback
+#   examples: |
+#     - what feedbacks did you receive from you clients
+#     - were the received product feedbaks good?  
+#     - were the customers satisfied with your services
+#     - how were the customers feedback?
+#     - have you received positive feedback from your clients?
+#     - what do your clients say about your products
+#     - how were the customers response to your products?
+#     - give me the received feedback of the products
+#     - can you tell me about the customer testimonials?
+#     - what were the customer testimonials?
 
-- intent: used_technology
-  examples: |
-    - what type of technologies gplex ai uses?
-    - give me a list of the technologies you use
-    - what technologies are behind your products
-    - what technologies power your products
-    - can you shed some light on the technologies you use?
-    - can you give me a brief overview of the technologies you use?
-    - what kind of technology is behind your services?
-    - what are the technologies behind your services?
+# - intent: contact_info
+#   examples: |
+#     - how can i contact you?
+#     - give me your contact info
+#     - how can i reach you?
+#     - how to reach you?
+#     - how to cantact you?
+#     - what are your contact details?
+#     - how to get in touch with gplex ai?
+#     - can you share me your customer support contact details?
+    # - tell me the way to reach you
+
+# - intent: used_technology
+#   examples: |
+#     - what type of technologies gplex ai uses?
+#     - give me a list of the technologies you use
+#     - what technologies are behind your products
+#     - what technologies power your products
+#     - can you shed some light on the technologies you use?
+#     - can you give me a brief overview of the technologies you use?
+#     - what kind of technology is behind your services?
+#     - what are the technologies behind your services?
 
 
