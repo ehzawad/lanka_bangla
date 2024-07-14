@@ -63,6 +63,13 @@ class Action_Otions1(Action):
         elif tracker.get_intent_of_latest_message() == "apply_now":
             dispatcher.utter_message(response="utter_apply_now")
         
+        elif tracker.get_intent_of_latest_message() == "rateofinterest":
+            dispatcher.utter_message(response="utter_rateofinterest")
+
+        elif tracker.get_intent_of_latest_message() == "fee_charges":
+            dispatcher.utter_message(response="utter_fee_charges")
+
+
 
 
         return []

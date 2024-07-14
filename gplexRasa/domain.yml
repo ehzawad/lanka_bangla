@@ -59,6 +59,8 @@ intents:
   - deposit
   - loan
   - apply_now
+  - fee_charges
+  - rateofinterest
   
 actions:
   - action_options1
@@ -95,7 +97,7 @@ responses:
       payload: "/product_information"
   
   utter_read_privacy_policy:
-  - text: "You can read our privacy policy here: https://www.lankabangla.com/privacy-policy/"
+  - text: "https://www.lankabangla.com/privacy-policy/"
 
   utter_main_node:
   - text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
@@ -110,23 +112,81 @@ responses:
   utter_product_information:
   - text: "product information"
 
+  utter_fee_charges:
+  - text: "fee and charges"
+
+  utter_rateofinterest:
+  - text: "rate of interest"
+
+  # utter_existing_customer:
+  # - text: "please select your product type"
+  #   buttons:
+  #   - title: "credit card"
+  #     payload: "/credit_card"
+  #   - title: "deposit"
+  #     payload: "/deposit"
+  #   - title: "Loan"
+  #     payload: "/loan"
+  #   - title: "apply now"
+  #     payload: "/apply_now"
+  #   - title: "go back"
+  #     payload: "/main_node"
+
+
+
+  # utter_existing_customer:
+  # - custom:
+  #     payload: "quickReplies"
+  #     data:
+  #       - title: "Credit Card"
+  #         payload: "/credit_card"
+  #       - title: "Deposit"
+  #         payload: "/deposit"
+  #       - title: "Loan"
+  #         payload: "/loan"
+  #       - title: "Apply Now"
+  #         payload: "/apply_now"
+  #       - title: "Go Back"
+  #         payload: "/main_node"
+
+
   utter_existing_customer:
-  - text: "please select your product type"
-    buttons:
-    - title: "credit card"
-      payload: "/credit_card"
-    - title: "deposit"
-      payload: "/deposit"
-    - title: "Loan"
-      payload: "/loan"
-    - title: "apply now"
-      payload: "/apply_now"
-    - title: "go back"
-      payload: "/main_node"
+    - text: "Please select your product type"
+      buttons:
+        - title: "Credit Card"
+          payload: "/credit_card"
+        - title: "Deposit"
+          payload: "/deposit"
+        - title: "Loan"
+          payload: "/loan"
+        - title: "Apply Now"
+          payload: "/apply_now"
+        - title: "Go Back"
+          payload: "/main_node"
+      custom:
+        payload: "quickReplies"
+        data:
+          - title: "Credit Card"
+            payload: "/credit_card"
+          - title: "Deposit"
+            payload: "/deposit"
+          - title: "Loan"
+            payload: "/loan"
+          - title: "Apply Now"
+            payload: "/apply_now"
+          - title: "Go Back"
+            payload: "/main_node"
 
   utter_new_customer:
-  - text: " new customer"
-  
+    - text: "Thank you for your interest in lankabangla"
+      buttons:
+          - title: "products"
+            payload: "/product_information"
+          - title: "fee & charges"
+            payload: "/fee_charges"
+          - title: "rate of interest"
+            payload: "/rateofinterest"
+
 
   utter_credit_card:
   - text: "You can apply for a credit card here: https://www.lankabangla.com/credit-card/"

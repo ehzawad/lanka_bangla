@@ -41,6 +41,16 @@ nlu:
   examples: |
     - I want to know about your products
 
+- intent: rateofinterest
+  examples: |
+    - interest rateofinterest
+
+- intent: fee_charges
+  examples: |
+    - fee charges
+    - charges
+    - fee
+
 
 - intent: existing_customer
   examples: |

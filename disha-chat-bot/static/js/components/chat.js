@@ -47,6 +47,7 @@ function getBotResponse(text) {
  * for more info: `https://rasa.com/docs/rasa/connectors/your-own-website#request-and-response-format`
  */
 function setBotResponse(response) {
+    const fadeTimeout = 500;
     // renders bot response after 500 milliseconds
     setTimeout(() => {
         hideBotTyping();
@@ -64,11 +65,16 @@ function setBotResponse(response) {
                                       </div>
                                        <div class="clearfix"></div>`;
 
-            $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+            $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
             scrollToBottomOfResults();
         } else {
             // if we get response from Rasa
-            for (let i = 0; i < response.length; i += 1) {
+            console.log("here in the else block!", response);
+            
+ 
+
+            for (let i = 0; i < response.length; i++) {
+                console.log(response, response.custom, response[i].custom, i, "Test custom");
                 // check if the response contains "text"
                 if (Object.hasOwnProperty.call(response[i], "text")) {
                     if (response[i].text != null) {
@@ -121,16 +127,17 @@ function setBotResponse(response) {
                             }
                         }
                         // append the bot response on to the chat screen
-                        $(botResponse).appendTo(".chats").hide().fadeIn(1000);
+                        $(botResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
                     }
                 }
 
-                // check if the response contains "images"
+                
+                // // check if the response contains "images"
                 if (Object.hasOwnProperty.call(response[i], "image")) {
                     if (response[i].image !== null) {
                         const BotResponse = `<div class="singleCard"><img class="imgcard" src="${response[i].image}"></div><div class="clearfix">`;
 
-                        $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+                        $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
                     }
                 }
 
@@ -149,13 +156,14 @@ function setBotResponse(response) {
                             const video_url = response[i].attachment.payload.src;
 
                             const BotResponse = `<div class="video-container"> <iframe src="${video_url}" frameborder="0" allowfullscreen></iframe> </div>`;
-                            $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+                            $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
                         }
                     }
                 }
                 // check if the response contains "custom" message
                 if (Object.hasOwnProperty.call(response[i], "custom")) {
                     const {payload} = response[i].custom;
+
                     if (payload === "quickReplies") {
                         // check if the custom payload type is "quickReplies"
                         const quickRepliesData = response[i].custom.data;
@@ -231,6 +239,7 @@ function setBotResponse(response) {
                         });
                         return;
                     }
+                    
 
                     // check of the custom payload type is "collapsible"
                     if (payload === "collapsible") {

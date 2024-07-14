@@ -59,16 +59,40 @@ def message():
     # post_data = sender_data.encode('utf-8')
 
     # print(post_data)
+    ##############old code
+    # req = rqst.Request("http://192.168.10.78:5054/webhooks/rest/webhook", data=post_data)
+    # post_resp = rqst.urlopen(req)
+    # print(post_resp)
+    # ai_resp = json.loads(post_resp.read())
+    # print(ai_resp)
+    # bot_response = ai_resp[0]["text"] if len(ai_resp) > 0 else ''
+
+    # PREV_TEXT = bot_response
+    # dat = [{"bt": bot_response, "audio": ""}]
+    # return jsonify(dat)
+    ##############old code
+
+    
     req = rqst.Request("http://192.168.10.78:5054/webhooks/rest/webhook", data=post_data)
     post_resp = rqst.urlopen(req)
-    print(post_resp)
     ai_resp = json.loads(post_resp.read())
-    print(ai_resp)
-    bot_response = ai_resp[0]["text"] if len(ai_resp) > 0 else ''
 
-    PREV_TEXT = bot_response
-    dat = [{"bt": bot_response, "audio": ""}]
-    return jsonify(dat)
+    response_data = {
+        "text": "",
+        "buttons": [],
+        "quick_replies": []
+    }
+
+    for resp in ai_resp:
+        if "text" in resp:
+            response_data["text"] = resp["text"]
+        
+        if "buttons" in resp:
+            response_data["buttons"] = resp["buttons"]
+        
+        if "custom" in resp and resp["custom"]["payload"] == "quickReplies":
+            response_data["quick_replies"] = resp["custom"]["data"]
+    return jsonify(response_data)
 
 if __name__ == '__main__':
     #context = (vosk_cert_file, vosk_key_file) if vosk_cert_file else None

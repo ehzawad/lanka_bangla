@@ -770,20 +770,20 @@ div.content_data::-webkit-scrollbar {
 
 /* css for quick replies */
 
+
+/* ehzawad */
 .quickReplies {
-    padding: 5px;
-    position: relative;
-    width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    transition: all 0.2s;
-    transform: scale(0.98);
-    will-change: transform;
-    user-select: none;
-    cursor: pointer;
-    scroll-behavior: smooth;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 12px;
+    border-radius: 8px;
+    max-width: 100%;
+    overflow-x: visible;
 }
+
 
 .quickReplies::-webkit-scrollbar {
     width: 0 !important;
@@ -795,16 +795,27 @@ div.content_data::-webkit-scrollbar {
     transform: scale(1);
 }
 
+
+/* ehzawad */
+
 .chip {
-    background-color: white;
-    border: 1px solid #f1852d;
-    color: #f1852d;
-    font-weight: bolder;
-    text-align: center;
+    background-color: transparent;
+    border: 1px solid #67b26f;
+    color: #67b26f;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    line-height: 1.3em;
 }
 
-.chip:hover {
-    background-color: #f1852d;
+
+
+.chip:hover,
+.chip:focus{
+    background-color: #4ca2cd;
     color: white;
 }
 

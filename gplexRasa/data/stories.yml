@@ -16,6 +16,8 @@ stories:
     - intent: apply_now
     - intent: existing_customer
     - intent: new_customer
+    - intent: fee_charges
+    - intent: rateofinterest
     # - intent: our_services
     # - intent: demo
     # - intent: solution
