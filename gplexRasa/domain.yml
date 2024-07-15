@@ -99,15 +99,80 @@ responses:
   utter_read_privacy_policy:
   - text: "https://www.lankabangla.com/privacy-policy/"
 
+  # utter_main_node:
+  # - text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
+  #   buttons:
+  #   - title: "customer account information"
+  #     payload: "/existing_customer"
+  #   - title: "general information"
+  #     payload: "/new_customer"
+  #   - title: "home"
+  #     payload: "/greet"
+
+
+  # utter_main_node:
+  #   - custom:
+  #       payload: "cardsCarousel"
+  #       data:
+  #         - title: "customer account information"
+  #           image: "https://example.com/credit_card.jpg"
+  #           subtitle: "customer account information"
+  #           buttons:
+  #             - title: "Learn More"
+  #               payload: "/existing_customer"
+  #         - title: "general information"
+  #           image: "https://example.com/deposit.jpg"
+  #           subtitle: "general information"
+  #           buttons:
+  #             - title: "general information"
+  #               payload: "/new_customer"
+  #         - title: "home"
+  #           image: "https://example.com/loan.jpg"
+  #           subtitle: "home"
+  #           buttons:
+  #             - title: "home"
+  #               payload: "/greet"
+
+
   utter_main_node:
-  - text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
-    buttons:
-    - title: "customer account information"
-      payload: "/existing_customer"
-    - title: "general information"
-      payload: "/new_customer"
-    - title: "home"
-      payload: "/greet"
+  - custom:
+      payload: "cardsCarousel"
+      data:
+        - title: "Customer Account Information"
+          image: "https://picsum.photos/600/400/"
+          subtitle: "Access and manage your account details"
+          buttons:
+            - title: "Learn More"
+              payload: "/existing_customer"
+            - title: "Check Balance"
+              payload: "/check_balance"
+            - title: "Recent Transactions"
+              payload: "/recent_transactions"
+
+            - title: "Learn More"
+              payload: "/existing_customer"
+            - title: "Check Balance"
+              payload: "/check_balance"
+            - title: "Recent Transactions"
+              payload: "/recent_transactions"
+              
+        - title: "General Information"
+          image: "https://picsum.photos/600/400/"
+          subtitle: "Explore our services and offerings"
+          buttons:
+            - title: "Products"
+              payload: "/products_info"
+            - title: "Services"
+              payload: "/services_info"
+        - title: "Home"
+          image: "https://picsum.photos/600/400/"
+          subtitle: "Return to main menu"
+          buttons:
+            - title: "Home"
+              payload: "/greet"
+            - title: "Help"
+              payload: "/help"
+
 
   utter_product_information:
   - text: "product information"

@@ -143,6 +143,7 @@ function setBotResponse(response) {
 
                 // check if the response contains "buttons"
                 if (Object.hasOwnProperty.call(response[i], "buttons")) {
+
                     if (response[i].buttons.length > 0) {
                         addSuggestion(response[i].buttons);
                     }
@@ -195,6 +196,7 @@ function setBotResponse(response) {
                     // check if the custom payload type is "cardsCarousel"
                     if (payload === "cardsCarousel") {
                         const restaurantsData = response[i].custom.data;
+                        console.log("I am inside carosel", restaurantsData);
                         showCardsCarousel(restaurantsData);
                         return;
                     }

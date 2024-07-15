@@ -15,7 +15,7 @@ var mic_toggle = 0
 
 userInput.addEventListener("input", function() {
     if (userInput.value.trim() === "") {
-        microphoneIcon.innerHTML = '<i class="fa fa-microphone" aria-hidden="true"></i>';
+        microphoneIcon.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i>';
         mic_toggle = 0
     } else {
         microphoneIcon.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i>';
@@ -26,7 +26,7 @@ userInput.addEventListener("input", function() {
 // // Add an event listener to the paperplane icon for click
 // paperplaneIcon.addEventListener("click", function() {
 //     // Reset the microphone icon to active mode
-//     microphoneIcon.innerHTML = '<i class="fa fa-microphone" aria-hidden="true"></i>';
+//     microphoneIcon.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i>';
 //     mic_toggle = 1
 // });
 
@@ -34,7 +34,7 @@ userInput.addEventListener("input", function() {
 userInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         // Reset the microphone icon to active mode
-        microphoneIcon.innerHTML = '<i class="fa fa-microphone" aria-hidden="true"></i>';
+        microphoneIcon.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i>';
         mic_toggle = 1
     }
 });
@@ -106,11 +106,11 @@ function send_message(){
 }
 
 function btn_show_stop() {
-    microphoneIcon.innerHTML = '<i class="fa fa-microphone-slash" aria-hidden="true"></i>'
+    microphoneIcon.innerHTML = '<i class="fa fa-paper-plane-slash" aria-hidden="true"></i>'
 }
 
 function btn_show_start() {
-    microphoneIcon.innerHTML = '<i class="fa fa-microphone" aria-hidden="true"></i>'
+    microphoneIcon.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i>'
 }
 
 function negotiate() {
@@ -190,7 +190,7 @@ function starter(){
 microphoneIcon.addEventListener("click", function() {
     if (mic_toggle == 2){
         console.log("Hello world")
-        microphoneIcon.innerHTML = '<i class="fa fa-microphone" aria-hidden="true"></i>';
+        microphoneIcon.innerHTML = '<i class="fa fa-paper-plane" aria-hidden="true"></i>';
         mic_toggle = 0
     }else if(mic_toggle == 0){
         mic_toggle = 1;
