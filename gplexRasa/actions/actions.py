@@ -41,8 +41,8 @@ class Action_Otions1(Action):
         elif tracker.get_intent_of_latest_message() == "exit":
             dispatcher.utter_message(text="Thank you have a good day!")
 
-        elif tracker.get_intent_of_latest_message() == "read_privacy_policy":
-            dispatcher.utter_message(response="utter_read_privacy_policy")
+        # elif tracker.get_intent_of_latest_message() == "read_privacy_policy":
+        #     dispatcher.utter_message(response="utter_read_privacy_policy")
 
         elif tracker.get_intent_of_latest_message() == "existing_customer":
             print("existing_customer intent actions")

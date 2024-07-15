@@ -44,9 +44,8 @@ function getBotResponse(text) {
  * renders bot response on to the chat screen
  * @param {Array} response json array containing different types of bot response
  *
- * for more info: `https://rasa.com/docs/rasa/connectors/your-own-website#request-and-response-format`
- */
-function setBotResponse(response) {
+ * for more info: `https://rasa.com/docs/rasa/connectors/your-own-website#request-and-response-format`**/
+ function setBotResponse(response) {
     const fadeTimeout = 500;
     // renders bot response after 500 milliseconds
     setTimeout(() => {
@@ -56,29 +55,26 @@ function setBotResponse(response) {
             const fallbackMsg = "I am facing some issues, please try again later!!!";
 
             const BotResponse = `
-
- <div class="botAvatar">
-                                      <div class="botAvatar-image">
-                                         <img src="./static/img/disha.svg"/>
-                                       </div>
-                                       <p class="botMsg">${fallbackMsg}</p>
-                                      </div>
-                                       <div class="clearfix"></div>`;
+                <div class="botAvatar">
+                    <div class="botAvatar-image">
+                        <img src="./static/img/disha.svg"/>
+                    </div>
+                    <p class="botMsg">${fallbackMsg}</p>
+                </div>
+                <div class="clearfix"></div>`;
 
             $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
             scrollToBottomOfResults();
         } else {
             // if we get response from Rasa
             console.log("here in the else block!", response);
-            
- 
 
             for (let i = 0; i < response.length; i++) {
                 console.log(response, response.custom, response[i].custom, i, "Test custom");
                 // check if the response contains "text"
                 if (Object.hasOwnProperty.call(response[i], "text")) {
                     if (response[i].text != null) {
-                        // convert the text to mardown format using showdown.js(https://github.com/showdownjs/showdown);
+                        // convert the text to markdown format using showdown.js(https://github.com/showdownjs/showdown);
                         let botResponse;
                         let html = converter.makeHtml(response[i].text);
                         html = html
@@ -110,20 +106,19 @@ function setBotResponse(response) {
                             html.includes("<h3")
                         ) {
                             html = html.replaceAll("<br>", "");
-                            // botResponse = `<img class="botAvatar" src="./static/img/sara_avatar.png"/><span class="botMsg">${html}</span><div class="clearfix"></div>`;
                             botResponse = getBotResponse(html);
                         } else {
                             // if no markdown formatting found, render the text as it is.
                             if (!botResponse) {
                                 botResponse = `
-                                      <div class="botAvatar">
-                                      <div class="botAvatar-image">
-                                         <img src="./static/img/disha.svg"/>
-                                       </div>
-                                       <p class="botMsg">${response[i].text}</p>
-                                      </div>
-                                       <div class="clearfix"></div>
-                                 `;
+                                    <div class="botAvatar">
+                                        <div class="botAvatar-image">
+                                            <img src="./static/img/disha.svg"/>
+                                        </div>
+                                        <p class="botMsg">${response[i].text}</p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                `;
                             }
                         }
                         // append the bot response on to the chat screen
@@ -131,19 +126,16 @@ function setBotResponse(response) {
                     }
                 }
 
-                
-                // // check if the response contains "images"
+                // check if the response contains "images"
                 if (Object.hasOwnProperty.call(response[i], "image")) {
                     if (response[i].image !== null) {
                         const BotResponse = `<div class="singleCard"><img class="imgcard" src="${response[i].image}"></div><div class="clearfix">`;
-
                         $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
                     }
                 }
 
                 // check if the response contains "buttons"
                 if (Object.hasOwnProperty.call(response[i], "buttons")) {
-
                     if (response[i].buttons.length > 0) {
                         addSuggestion(response[i].buttons);
                     }
@@ -155,12 +147,12 @@ function setBotResponse(response) {
                         if (response[i].attachment.type === "video") {
                             // check if the attachment type is "video"
                             const video_url = response[i].attachment.payload.src;
-
                             const BotResponse = `<div class="video-container"> <iframe src="${video_url}" frameborder="0" allowfullscreen></iframe> </div>`;
                             $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
                         }
                     }
                 }
+
                 // check if the response contains "custom" message
                 if (Object.hasOwnProperty.call(response[i], "custom")) {
                     const {payload} = response[i].custom;
@@ -201,13 +193,20 @@ function setBotResponse(response) {
                         return;
                     }
 
+                    if (payload === "buttonsPayload") {
+                        const buttonsData = response[i].custom.data;
+                        showButtons(buttonsData);
+                        return;
+                    }
+
+                    if (payload === "urlLink") {
+                        const urlLinkData = response[i].custom.data;
+                        showUrlLink(urlLinkData);
+                        return;
+                    }
+
                     // check if the custom payload type is "chart"
                     if (payload === "chart") {
-                        /**
-                         * sample format of the charts data:
-                         *  var chartData =  { "title": "Leaves", "labels": ["Sick Leave", "Casual Leave", "Earned Leave", "Flexi Leave"], "backgroundColor": ["#36a2eb", "#ffcd56", "#ff6384", "#009688", "#c45850"], "chartsData": [5, 10, 22, 3], "chartType": "pie", "displayLegend": "true" }
-                         */
-
                         const chartData = response[i].custom.data;
                         const {
                             title,
@@ -241,7 +240,6 @@ function setBotResponse(response) {
                         });
                         return;
                     }
-                    
 
                     // check of the custom payload type is "collapsible"
                     if (payload === "collapsible") {

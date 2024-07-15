@@ -86,18 +86,34 @@ responses:
   utter_greet:
   - text: "Hey! How are you?"
 
+  # utter_atStart:
+  # - text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
+  #   buttons:
+  #   - title: "Read privacy policy"
+  #     payload: "/read_privacy_policy"
+  #   - title: "Agree"
+  #     payload: "/main_node"
+  #   - title: "Disagree"
+  #     payload: "/product_information"
+
   utter_atStart:
-  - text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
-    buttons:
-    - title: "Read privacy policy"
-      payload: "/read_privacy_policy"
-    - title: "Agree"
-      payload: "/main_node"
-    - title: "Disagree"
-      payload: "/product_information"
+  - custom:
+      payload: "buttonsPayload"
+      data:
+        text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
+        buttons:
+          - title: "Read privacy policy"
+            type: "urlLink"
+            url: "https://www.lankabangla.com/privacy-policy/"
+            payload: "/read_privacy_policy"
+          - title: "Agree"
+            payload: "/main_node"
+          - title: "Disagree"
+            payload: "/product_information"
   
-  utter_read_privacy_policy:
-  - text: "https://www.lankabangla.com/privacy-policy/"
+  # utter_read_privacy_policy:
+  # - text: "https://www.lankabangla.com/privacy-policy/"
+
 
   # utter_main_node:
   # - text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
@@ -155,7 +171,7 @@ responses:
               payload: "/check_balance"
             - title: "Recent Transactions"
               payload: "/recent_transactions"
-              
+
         - title: "General Information"
           image: "https://picsum.photos/600/400/"
           subtitle: "Explore our services and offerings"
