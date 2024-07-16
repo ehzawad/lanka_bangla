@@ -105,6 +105,31 @@ nlu:
     - apply now
 
 
+  # - credit_card_products
+  # - deposit_products
+  # - loan_products
+
+- intent: credit_card_products
+  examples: |
+    - I want to know about the credit card products
+    - credit card products
+    - credit card products are important
+    - ok credit card products
+
+- intent: deposit_products
+  examples: |
+    - I want to know about the deposit products
+    - deposit products
+    - deposit products are important
+    - ok deposit products
+
+- intent: loan_products
+  examples: |
+    - I want to know about the loan products
+    - loan products
+    - loan products are important
+    - ok loan products
+
 # - intent: talkToLLm
 #   examples: |
 #     - I want to tallk to your LLM

@@ -18,6 +18,9 @@ stories:
     - intent: new_customer
     - intent: fee_charges
     - intent: rateofinterest
+    - intent: credit_card_products
+    - intent: deposit_products
+    - intent: loan_products
     # - intent: our_services
     # - intent: demo
     # - intent: solution

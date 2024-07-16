@@ -61,6 +61,9 @@ intents:
   - apply_now
   - fee_charges
   - rateofinterest
+  - credit_card_products
+  - deposit_products
+  - loan_products
   
 actions:
   - action_options1
@@ -205,8 +208,32 @@ responses:
   #             payload: "/help"
 
 
+  # utter_product_information:
+  # - text: "product information"
+
   utter_product_information:
-  - text: "product information"
+  - custom:
+      payload: "cardsCarousel"
+      data:
+        - title: "product Information"
+          image: "https://picsum.photos/600/400/"
+          subtitle: "We offer various products as per customer requirements. To know more about our products, please choose from below"
+          buttons:
+            - title: "credit card"
+              payload: "/credit_card_products"
+            - title: "deposit scheme"
+              payload: "/deposit_products"
+            - title: "Loan"
+              payload: "/loan_products"
+
+  utter_credit_card_products:
+  - text: "credit card products"
+
+  utter_deposit_products:
+  - text: "deposit products"
+
+  utter_loan_products:
+  - text: "loan products"
 
   utter_fee_charges:
   - text: "fee and charges"

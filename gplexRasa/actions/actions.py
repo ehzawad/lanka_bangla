@@ -69,6 +69,15 @@ class Action_Otions1(Action):
         elif tracker.get_intent_of_latest_message() == "fee_charges":
             dispatcher.utter_message(response="utter_fee_charges")
 
+        elif tracker.get_intent_of_latest_message() == "credit_card_products":
+            dispatcher.utter_message(response="utter_credit_card_products")
+
+        elif tracker.get_intent_of_latest_message() == "deposit_products":
+            dispatcher.utter_message(response="utter_deposit_products")
+        
+        elif tracker.get_intent_of_latest_message() == "loan_products":
+            dispatcher.utter_message(response="utter_loan_products")
+
 
 
 
