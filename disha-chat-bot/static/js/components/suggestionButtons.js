@@ -46,7 +46,12 @@ function showUrlLink(urlLinkData) {
 
 
 function showButtons(buttonsData) {
-    const { text, buttons } = buttonsData;
+    // const { text, type, buttons } = buttonsData;
+
+    // if (type === 'quickrepliesbuttons') {
+    //     console.log("convert it to quick replies");
+        
+    // }
 
     // Clear existing suggestions first
     $(".suggestions").remove();

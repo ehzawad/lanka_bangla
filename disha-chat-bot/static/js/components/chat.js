@@ -40,6 +40,64 @@ function getBotResponse(text) {
     return botResponse;
 }
 
+const fadeTimeout = 500; // Define fadeTimeout at the top level
+
+function displayChatbotMessage(buttonsData) {
+    const { text, type } = buttonsData[0] || buttonsData;
+    
+    if (type && text) {
+        let html = converter.makeHtml(text);
+        html = html
+            .replaceAll("<p>", "")
+            .replaceAll("</p>", "")
+            .replaceAll("<strong>", "<b>")
+            .replaceAll("</strong>", "</b>");
+        html = html.replace(/(?:\r\n|\r|\n)/g, "<br>");
+        
+        let botResponse = '';
+        
+        if (html.includes("<blockquote>") || 
+            html.includes("<img") || 
+            html.includes("<pre") || 
+            html.includes("<code>") ||
+            html.includes("<ul") ||
+            html.includes("<ol") ||
+            html.includes("<li") ||
+            html.includes("<h3")) {
+            
+            if (html.includes("<blockquote>") || 
+                html.includes("<ul") ||
+                html.includes("<ol") ||
+                html.includes("<li") ||
+                html.includes("<h3")) {
+                html = html.replaceAll("<br>", "");
+            }
+            
+            if (html.includes("<img")) {
+                html = html.replaceAll("<img", '<img class="imgcard_mrkdwn" ');
+            }
+            
+            botResponse = getBotResponse(html);
+        } else {
+            botResponse = `
+                <div class="botAvatar">
+                    <div class="botAvatar-image">
+                        <img src="./static/img/disha.svg"/>
+                    </div>
+                    <p class="botMsg">${html}</p>
+                </div>
+                <div class="clearfix"></div>
+            `;
+        }
+        
+        $(botResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
+        scrollToBottomOfResults();
+    }
+}
+
+// Usage
+// displayChatbotMessage(buttonsData);
+
 /**
  * renders bot response on to the chat screen
  * @param {Array} response json array containing different types of bot response
@@ -159,6 +217,8 @@ function getBotResponse(text) {
 
                     if (payload === "quickReplies") {
                         // check if the custom payload type is "quickReplies"
+                        // ehzawad
+
                         const quickRepliesData = response[i].custom.data;
                         showQuickReplies(quickRepliesData);
                         return;
@@ -195,7 +255,33 @@ function getBotResponse(text) {
 
                     if (payload === "buttonsPayload") {
                         const buttonsData = response[i].custom.data;
-                        showButtons(buttonsData);
+                        console.log("quota strike")
+                        console.log(buttonsData)
+
+                        const { text, type, buttons } = buttonsData;
+                        console.log(`**text**: "${text}"`);
+                        console.log(`**type**: "${type}"`);
+
+                        let textbeforequickreplies;
+                        if (type === 'quickrepliesbuttons') {
+                            console.log("convert it to quick replies");
+
+                            textbeforequickreplies = `
+                                <div class="botAvatar">
+                                    <div class="botAvatar-image">
+                                        <img src="./static/img/disha.svg"/>
+                                    </div>
+                                    <p class="botMsg">${text}</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            `;
+                            $(textbeforequickreplies).appendTo(".chats").hide().fadeIn(500);
+                            showQuickReplies(buttons);
+                            
+                        } else {
+                            showButtons(buttonsData);
+                        }
+                    
                         return;
                     }
 
