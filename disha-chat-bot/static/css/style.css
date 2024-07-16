@@ -1097,7 +1097,7 @@ video:focus {
     display: none;  /* WebKit */
 }
 
-.carousel-card {
+/* .carousel-card {
     flex: 0 0 auto;
     width: 280px;
     margin-right: 20px;
@@ -1105,6 +1105,17 @@ video:focus {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: white;
+} */
+
+.carousel-card {
+    flex: 0 0 auto;
+    width: 280px;
+    margin-right: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
 }
 
 .carousel-card-image {
@@ -1113,7 +1124,7 @@ video:focus {
     object-fit: cover;
 }
 
-.carousel-card-content {
+/* .carousel-card-content {
     padding: 10px;
 }
 
@@ -1127,6 +1138,25 @@ video:focus {
     margin: 0 0 15px;
     font-size: 14px;
     color: #666;
+} */
+
+.carousel-card-content {
+    padding: 15px;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.carousel-card-title {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.carousel-card-subtitle {
+    margin: 0 0 15px;
+    font-size: 14px;
+    color: #666666;
 }
 
 .carousel-card-buttons {
@@ -1136,7 +1166,7 @@ video:focus {
     flex-direction: column;
 }
 
-.carousel-button {
+/* .carousel-button {
     padding: 8px 12px;
     background-color: transparent;
     color: #1eadff;
@@ -1144,12 +1174,50 @@ video:focus {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+} */
+
+/* .carousel-button:hover {
+    background-color: #1eadff;
+    color: #ffffff;
 }
 
-.carousel-button:hover {
+.carousel-button:active {
     background-color: #1eadff;
-    color:#ffffff
+    color: #ffffff;
+}
+
+.carousel-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30, 173, 255, 0.5);
+} */
+
+.carousel-button {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #1eadff;
+    border: 2px solid #1eadff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: -3px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-button:hover, .carousel-button:active, .carousel-button:focus {
+    background-color: #1eadff;
+    color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(30, 173, 255, 0.5);
+}
+
+
+.carousel-button.clicked {
+    background-color: #1eadff;
+    color: #ffffff;
 }
 
 .carousel-control {
@@ -1179,6 +1247,16 @@ video:focus {
     right: 10px;
 }
 
+.carousel-button.primary {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border-color: #4CAF50;
+}
+
+.carousel-button.primary:hover, .carousel-button.primary:active, .carousel-button.primary:focus {
+    background-color: #45a049;
+    border-color: #45a049;
+}
 
 .cardButtons {
     margin-top: 10px;

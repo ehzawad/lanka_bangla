@@ -9,8 +9,12 @@ function createCardsCarousel(cardsData) {
     cardsData.map((card_item) => {
         let buttons = "";
         if (card_item.buttons && card_item.buttons.length > 0) {
+            // buttons = card_item.buttons.map(btn =>
+            //     `<button class="carousel-button" onclick="carouselButtonClick('${btn.payload}', '${btn.title}')">${btn.title}</button>`
+            // ).join('');
+
             buttons = card_item.buttons.map(btn =>
-                `<button class="carousel-button" onclick="carouselButtonClick('${btn.payload}', '${btn.title}')">${btn.title}</button>`
+                `<button class="carousel-button ${btn.primary ? 'primary' : ''}" onclick="carouselButtonClick('${btn.payload}', '${btn.title}')">${btn.title}</button>`
             ).join('');
         }
         const item = `
@@ -50,8 +54,17 @@ function showCardsCarousel(cardsToAdd) {
     $(".usrInput").focus();
 }
 
+// function carouselButtonClick(payload, title) {
+//     setUserResponse(title);
+//     send(payload);
+// }
+
 function carouselButtonClick(payload, title) {
+    const button = event.target;
+    button.classList.add('clicked');
+    setTimeout(() => {
+        button.classList.remove('clicked');
+    }, 300);  // Remove the class after 300ms
     setUserResponse(title);
     send(payload);
 }
-
