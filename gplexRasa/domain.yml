@@ -275,17 +275,17 @@ responses:
 
   utter_existing_customer:
     - text: "Please select your product type"
-      buttons:
-        - title: "Credit Card"
-          payload: "/credit_card"
-        - title: "Deposit"
-          payload: "/deposit"
-        - title: "Loan"
-          payload: "/loan"
-        - title: "Apply Now"
-          payload: "/apply_now"
-        - title: "Go Back"
-          payload: "/main_node"
+      # buttons:
+      #   - title: "Credit Card"
+      #     payload: "/credit_card"
+      #   - title: "Deposit"
+      #     payload: "/deposit"
+      #   - title: "Loan"
+      #     payload: "/loan"
+      #   - title: "Apply Now"
+      #     payload: "/apply_now"
+      #   - title: "Go Back"
+      #     payload: "/main_node"
       custom:
         payload: "quickReplies"
         data:
@@ -301,7 +301,7 @@ responses:
             payload: "/main_node"
 
   utter_new_customer:
-    - text: "Thank you for your interest in lankabangla"
+    - text: "Thank you for your interest in lankabangla, please select"
       buttons:
           - title: "products"
             payload: "/product_information"
@@ -309,6 +309,34 @@ responses:
             payload: "/fee_charges"
           - title: "rate of interest"
             payload: "/rateofinterest"
+      custom:
+        payload: "quickReplies"
+        data:
+          - title: "payment solutions"
+            payload: "/payment_solutions"
+          - title: "branches"
+            payload: "/branches"
+          - title: "contact center"
+            payload: "/contact_center"
+          - title: "offers"
+            payload: "/offers"
+          - title: "apply now"
+            payload: "/apply_now"
+          - title: "go back"
+            payload: "/main_node"
+
+
+  utter_payment_solutions:
+  - text: "payment solutions"
+
+  utter_branches:
+  - text: "branches"
+
+  utter_contact_center:
+  - text: "contact center"
+
+  utter_offers:
+  - text: "offers"
 
 
   utter_credit_card:

@@ -130,6 +130,35 @@ nlu:
     - loan products are important
     - ok loan products
 
+- intent: payment_solutions
+  examples: |
+    - I want to know about the payment solutions
+    - payment solutions
+    - payment solutions are important
+    - ok payment solutions
+
+- intent: branches
+  examples: |
+    - I want to know about the branches
+    - branches
+    - branches are important
+    - ok branches
+
+- intent: contact_center
+  examples: |
+    - I want to know about the contact center
+    - contact center
+    - contact center is important
+    - ok contact center
+
+- intent: offers
+  examples: |
+    - I want to know about the offerings
+    - offerings
+    - offerings are important
+    - ok offerings
+
+
 # - intent: talkToLLm
 #   examples: |
 #     - I want to tallk to your LLM

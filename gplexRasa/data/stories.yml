@@ -21,6 +21,10 @@ stories:
     - intent: credit_card_products
     - intent: deposit_products
     - intent: loan_products
+    - intent: payment_solutions
+    - intent: branches
+    - intent: contact_center
+    - intent: offers
     # - intent: our_services
     # - intent: demo
     # - intent: solution

@@ -78,6 +78,17 @@ class Action_Otions1(Action):
         elif tracker.get_intent_of_latest_message() == "loan_products":
             dispatcher.utter_message(response="utter_loan_products")
 
+        elif tracker.get_intent_of_latest_message() == "payment_solutions":
+            dispatcher.utter_message(response="utter_payment_solutions")
+
+        elif tracker.get_intent_of_latest_message() == "branches":
+            dispatcher.utter_message(response="utter_branches")
+
+        elif tracker.get_intent_of_latest_message() == "contact_center":
+            dispatcher.utter_message(response="utter_contact_center")
+
+        elif tracker.get_intent_of_latest_message() == "offers":
+            dispatcher.utter_message(response="utter_offers")
 
 
 
