@@ -41,8 +41,21 @@ class Action_Otions1(Action):
         elif tracker.get_intent_of_latest_message() == "exit":
             dispatcher.utter_message(text="Thank you have a good day!")
 
-        elif tracker.get_intent_of_latest_message() == "read_privacy_policy":
-            dispatcher.utter_message(text="test 1 2 3")
+        # apply_for_deposit
+        elif tracker.get_intent_of_latest_message() == "apply_for_deposit":
+            dispatcher.utter_message(response="utter_apply_for_deposit")
+
+        # apply_for_loan
+        elif tracker.get_intent_of_latest_message() == "apply_for_loan":
+            dispatcher.utter_message(response="utter_apply_for_loan")
+
+        # apply_for_credit_card
+        elif tracker.get_intent_of_latest_message() == "apply_for_credit_card":
+            dispatcher.utter_message(response="utter_apply_for_credit_card")
+
+
+        # elif tracker.get_intent_of_latest_message() == "read_privacy_policy":
+        #     dispatcher.utter_message(text="test 1 2 3")
 
         elif tracker.get_intent_of_latest_message() == "existing_customer":
             print("existing_customer intent actions")

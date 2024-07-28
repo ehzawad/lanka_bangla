@@ -25,6 +25,9 @@ stories:
     - intent: branches
     - intent: contact_center
     - intent: offers
+    - intent: apply_for_credit_card
+    - intent: apply_for_loan
+    - intent: apply_for_deposit
     # - intent: our_services
     # - intent: demo
     # - intent: solution
