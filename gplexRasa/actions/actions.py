@@ -28,6 +28,23 @@ class Action_Otions1(Action):
 
         if tracker.get_intent_of_latest_message() == "main_node":
             dispatcher.utter_message(response="utter_main_node")
+            # dispatcher.utter_message(response="utter_one_button")
+            # dispatcher.utter_message(response="utter_two_button")
+            # dispatcher.utter_message(response="utter_three_button")
+
+
+        elif tracker.get_intent_of_latest_message() == "loan_products":
+            # dispatcher.utter_message(response="utter_loan_products")
+            dispatcher.utter_message(response="utter_loan_products_button_one")
+            # dispatcher.utter_message(response="utter_loan_products_button_two")
+            dispatcher.utter_message(response="utter_loan_products_button_three")
+
+
+        elif tracker.get_intent_of_latest_message() == "credit_card_offers":
+            dispatcher.utter_message(response="utter_credit_card_offers")
+            dispatcher.utter_message(response="utter_credit_card_offers_button_one")
+            dispatcher.utter_message(response="utter_credit_card_offers_button_two")
+            dispatcher.utter_message(response="utter_credit_card_offers_quick_replies")
 
         elif tracker.get_intent_of_latest_message() == "demo":
             return [FollowupAction("detail_form")]
@@ -64,8 +81,8 @@ class Action_Otions1(Action):
         elif tracker.get_intent_of_latest_message() == "new_customer":
             dispatcher.utter_message(response="utter_new_customer")
 
-        elif tracker.get_intent_of_latest_message() == "credit_card":
-            dispatcher.utter_message(response="utter_credit_card")
+        # elif tracker.get_intent_of_latest_message() == "credit_card":
+        #     dispatcher.utter_message(response="utter_credit_card")
 
         elif tracker.get_intent_of_latest_message() == "deposit":
             dispatcher.utter_message(response="utter_deposit")
@@ -102,6 +119,12 @@ class Action_Otions1(Action):
 
         elif tracker.get_intent_of_latest_message() == "offers":
             dispatcher.utter_message(response="utter_offers")
+
+        elif tracker.get_intent_of_latest_message() == "statement":
+            dispatcher.utter_message(response="utter_statement")
+
+        elif tracker.get_intent_of_latest_message() == "service_feedback":
+            dispatcher.utter_message(response="utter_service_feedback")
 
 
 
@@ -146,6 +169,7 @@ from interactions to help refine services and strategies."
 
         elif tracker.get_intent_of_latest_message() == "contact_center":
             dispatcher.utter_message(response="utter_contact_center")
+
 
         elif tracker.get_intent_of_latest_message() == "exit":
             dispatcher.utter_message(text="Thank you have a good day!")
@@ -503,141 +527,141 @@ To know more follow the link {link_AI_voiceBot} .\
         return []
     
 
-class ActionUtterUseCases(Action):
+# class ActionUtterUseCases(Action):
 
-    def name(self) -> Text:
-        return "action_utter_use_cases"
+#     def name(self) -> Text:
+#         return "action_utter_use_cases"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        link_financial_services="https://gplex.ai/financial"
-        link_Healthcare_Services="https://gplex.ai/health"
-        link_retail_and_ecommerce="https://gplex.ai/retail"
-        link_govt_services="https://gplex.ai/govt"
-        link_telecom_industry="https://gplex.ai/telecom"                         
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         link_financial_services="https://gplex.ai/financial"
+#         link_Healthcare_Services="https://gplex.ai/health"
+#         link_retail_and_ecommerce="https://gplex.ai/retail"
+#         link_govt_services="https://gplex.ai/govt"
+#         link_telecom_industry="https://gplex.ai/telecom"                         
                                                  
 
-        message = "Hey..glad to know that you want to explore more. Here are some use cases of our provided products:\
-\n1. Financial Services: AI-driven Voicebots can handle repetitive customer questions,\
-reducing the workload on human employees. To explore\
-further follow the link {link_financial_services}.\
-\n2. Healthcare Services: Our suite of AI solutions, including AI VoiceBoT, AI ChatBoT, and AI Contact\
-Center Technology, is designed to streamline operations, improve patient\
-engagement, and support healthcare professionals. For further exploration follow the link {link_Healthcare_Services}.\
-\n3. Retail & E-Commerce: gPlex AI revolutionizes customer service with the help of AI VoiceBots,\ AI ChatBots,\
-AI Contact Center Technology and AI Voice Analytics To explore more follow {link_retail_and_ecommerce}.\
-\n4. Governmental Services:  provide innovative solutions that streamline communications,\
-enhance public service delivery, and optimize operational efficiency for the Government. \
-For further exploration follow {link_govt_services}\
-\n5. Telecom Industry :  Telecom businesses take up artificial intelligence (AI) technology to try\
-to reduce operational costs, increase efficiency. For exploring further follow {link_telecom_industry}."
+#         message = "Hey..glad to know that you want to explore more. Here are some use cases of our provided products:\
+# \n1. Financial Services: AI-driven Voicebots can handle repetitive customer questions,\
+# reducing the workload on human employees. To explore\
+# further follow the link {link_financial_services}.\
+# \n2. Healthcare Services: Our suite of AI solutions, including AI VoiceBoT, AI ChatBoT, and AI Contact\
+# Center Technology, is designed to streamline operations, improve patient\
+# engagement, and support healthcare professionals. For further exploration follow the link {link_Healthcare_Services}.\
+# \n3. Retail & E-Commerce: gPlex AI revolutionizes customer service with the help of AI VoiceBots,\ AI ChatBots,\
+# AI Contact Center Technology and AI Voice Analytics To explore more follow {link_retail_and_ecommerce}.\
+# \n4. Governmental Services:  provide innovative solutions that streamline communications,\
+# enhance public service delivery, and optimize operational efficiency for the Government. \
+# For further exploration follow {link_govt_services}\
+# \n5. Telecom Industry :  Telecom businesses take up artificial intelligence (AI) technology to try\
+# to reduce operational costs, increase efficiency. For exploring further follow {link_telecom_industry}."
 
-        dispatcher.utter_message(text = message.format(link_financial_services=link_financial_services,
-                                                       link_Healthcare_Services=link_Healthcare_Services,
-                                                       link_retail_and_ecommerce=link_retail_and_ecommerce,
-                                                       link_govt_services=link_govt_services,
-                                                       link_telecom_industry=link_telecom_industry))
+#         dispatcher.utter_message(text = message.format(link_financial_services=link_financial_services,
+#                                                        link_Healthcare_Services=link_Healthcare_Services,
+#                                                        link_retail_and_ecommerce=link_retail_and_ecommerce,
+#                                                        link_govt_services=link_govt_services,
+#                                                        link_telecom_industry=link_telecom_industry))
         
-        return []
+#         return []
 
-class ActionUtterWhyChooseGplex(Action):
+# class ActionUtterWhyChooseGplex(Action):
 
-    def name(self) -> Text:
-        return "action_utter_why_choose_gplex"
+#     def name(self) -> Text:
+#         return "action_utter_why_choose_gplex"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message="Here are some reasons for you to choose us:\
-\n1. gplex ai helps you to empower your business\
-\n2. gplex ai can help to boost your sales conversion rates by 25%\
-\n3. We provide you with automated quality assurance\
-\n4. Our services helps to provide your customers exceptional experience.\
-\n5. gles ai helps to amplify the performance of yout team \
-\n6. gPlex AI dynamically adjusts agent displays in response to customer inquiries, streamlining complex processes for better engagement."
-        dispatcher.utter_message(text = message)
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         message="Here are some reasons for you to choose us:\
+# \n1. gplex ai helps you to empower your business\
+# \n2. gplex ai can help to boost your sales conversion rates by 25%\
+# \n3. We provide you with automated quality assurance\
+# \n4. Our services helps to provide your customers exceptional experience.\
+# \n5. gles ai helps to amplify the performance of yout team \
+# \n6. gPlex AI dynamically adjusts agent displays in response to customer inquiries, streamlining complex processes for better engagement."
+#         dispatcher.utter_message(text = message)
         
-        return []
+#         return []
 
-class ActionUtterAboutClients(Action):
+# class ActionUtterAboutClients(Action):
 
-    def name(self) -> Text:
-        return "action_utter_about_clients"
+#     def name(self) -> Text:
+#         return "action_utter_about_clients"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message="Some of our valued customers:\
-\n1. ROBI AXIATA: gPlex implemented CIVR for Robi Axiata to improve customer experience.\
-\n2. BDJOBS : Bdjobs selected gPlex AI to improve their customer experience.\
-\n3. MINISTRY OF LAND: Govt. of Bangladesh (Land) selects gPlex AI voicebot & voice notify solution."
-        dispatcher.utter_message(text = message)
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         message="Some of our valued customers:\
+# \n1. ROBI AXIATA: gPlex implemented CIVR for Robi Axiata to improve customer experience.\
+# \n2. BDJOBS : Bdjobs selected gPlex AI to improve their customer experience.\
+# \n3. MINISTRY OF LAND: Govt. of Bangladesh (Land) selects gPlex AI voicebot & voice notify solution."
+#         dispatcher.utter_message(text = message)
         
-        return []
+#         return []
 
-class ActionUtterClientFeedback(Action):
+# class ActionUtterClientFeedback(Action):
 
-    def name(self) -> Text:
-        return "action_utter_client_feedback"
+#     def name(self) -> Text:
+#         return "action_utter_client_feedback"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        message = 'We place a high value on our clients\' feedback and take it seriously. Providing you some client responses:\
-\n1. "Great Service..easy to use, quick help and response if needed, lots of interesting user friendly features." -\
-feedback given by MD, LangkaBangla Finance PLC\
-\n2. "Very stable and robust service..We are using gPlex Contact Center with satisfaction since 2018 to conduct \
-business operations with smart features." - said by CIO, Robi Axiata Ltd.\
-\n3. "Outstanding experience" - feedback from MD, Mutual Trust Bank PLC'
+#         message = 'We place a high value on our clients\' feedback and take it seriously. Providing you some client responses:\
+# \n1. "Great Service..easy to use, quick help and response if needed, lots of interesting user friendly features." -\
+# feedback given by MD, LangkaBangla Finance PLC\
+# \n2. "Very stable and robust service..We are using gPlex Contact Center with satisfaction since 2018 to conduct \
+# business operations with smart features." - said by CIO, Robi Axiata Ltd.\
+# \n3. "Outstanding experience" - feedback from MD, Mutual Trust Bank PLC'
 
-        dispatcher.utter_message(text = message)
+#         dispatcher.utter_message(text = message)
         
-        return []
+#         return []
   
-class ActionUtterContactInfo(Action):
+# class ActionUtterContactInfo(Action):
 
-    def name(self) -> Text:
-        return "action_utter_contact_info"
+#     def name(self) -> Text:
+#         return "action_utter_contact_info"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        message="To contact us dial at +1 (972) 318-2900 or mail at sales@gplex.com"
-        dispatcher.utter_message(text = message)
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         message="To contact us dial at +1 (972) 318-2900 or mail at sales@gplex.com"
+#         dispatcher.utter_message(text = message)
         
-        return []
+#         return []
   
-class ActionUtterUsedTechnology(Action):
+# class ActionUtterUsedTechnology(Action):
 
-    def name(self) -> Text:
-        return "actio_utter_used_technology"
+#     def name(self) -> Text:
+#         return "actio_utter_used_technology"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        link_speech_recognition= "https://gplex.ai/gplex_asr"
-        link_speech_to_text= "https://gplex.ai/gplex_stt"
-        link_text_to_speech= "https://gplex.ai/gplex_tts"
-        link_nlu= "https://gplex.ai/gplex_nlu"
+#         link_speech_recognition= "https://gplex.ai/gplex_asr"
+#         link_speech_to_text= "https://gplex.ai/gplex_stt"
+#         link_text_to_speech= "https://gplex.ai/gplex_tts"
+#         link_nlu= "https://gplex.ai/gplex_nlu"
         
-        message='Hey..glad to see your enthusiasm. Here is a list of the technologies we use:\
-\n1. Speech Recognition : Speech recognition technology is capable of converting spoken language (an audio signal) into written text.\
-For further information {link_speech_recognition} .\
-\n2. Speech-to-Text : Speech to text is essentially speech recognition software, often based on Artificial Intelligence.\
-To explore more follow the link {link_speech_to_text} .\
-\n3. Text-to-Speech : An assistive technology that reads digital text using AI algorithms. For further exploration follow\
-the link {link_text_to_speech} .\
-\n4. NLU : Natural language understanding uses computer software to understand input in the form of sentences using text or speech.\
-To explore more follow the link {link_nlu} '
-        dispatcher.utter_message(text = message.format(link_speech_recognition=link_speech_recognition,
-                                                       link_speech_to_text=link_speech_to_text,
-                                                       link_text_to_speech=link_text_to_speech,
-                                                       link_nlu=link_nlu))
+#         message='Hey..glad to see your enthusiasm. Here is a list of the technologies we use:\
+# \n1. Speech Recognition : Speech recognition technology is capable of converting spoken language (an audio signal) into written text.\
+# For further information {link_speech_recognition} .\
+# \n2. Speech-to-Text : Speech to text is essentially speech recognition software, often based on Artificial Intelligence.\
+# To explore more follow the link {link_speech_to_text} .\
+# \n3. Text-to-Speech : An assistive technology that reads digital text using AI algorithms. For further exploration follow\
+# the link {link_text_to_speech} .\
+# \n4. NLU : Natural language understanding uses computer software to understand input in the form of sentences using text or speech.\
+# To explore more follow the link {link_nlu} '
+#         dispatcher.utter_message(text = message.format(link_speech_recognition=link_speech_recognition,
+#                                                        link_speech_to_text=link_speech_to_text,
+#                                                        link_text_to_speech=link_text_to_speech,
+#                                                        link_nlu=link_nlu))
         
-        return []
+#         return []
     
 
 

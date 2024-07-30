@@ -23,6 +23,9 @@ intents:
   - apply_for_credit_card
   - apply_for_deposit
   - apply_for_loan
+  - statement
+  - service_feedback
+  - credit_card_offers
 
   
 actions:
@@ -118,25 +121,26 @@ responses:
           - title: "Email"
             payload: "/loan_email"
 
+
   
   
   # utter_read_privacy_policy:
   # - text: "https://www.lankabangla.com/privacy-policy/"
 
 
-  utter_main_node:
-  - custom:
-      payload: "buttonsPayload"
-      data:
-        type: "quickrepliesbuttons"
-        text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
-        buttons:
-          - title: "customer account information"
-            payload: "/existing_customer"
-          - title: "general information"
-            payload: "/new_customer"
-          - title: "home"
-            payload: "/greet"
+  # utter_main_node:
+  # - custom:
+  #     payload: "buttonsPayload"
+  #     data:
+  #       type: "quickrepliesbuttons"
+  #       text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
+  #       buttons:
+  #         - title: "customer account information"
+  #           payload: "/existing_customer"
+  #         - title: "general information"
+  #           payload: "/new_customer"
+  #         - title: "home"
+  #           payload: "/greet"
 
   # utter_main_node:         
   # - text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
@@ -239,6 +243,33 @@ responses:
 
   utter_loan_products:
   - text: "loan products"
+
+  utter_loan_products_button_one:
+  - text: "loan products, please select"
+    buttons:
+      - title: "Retail"
+        payload: "/retail"
+      - title: "/SME"
+        payload: "/SME"
+      - title: "Corporate Financial service"
+        payload: /corporate_financial_service
+
+  utter_loan_products_button_two:
+  - text: "And"
+    buttons:
+      - title: "SHIKHA"
+        payload: "/shikhalink"
+      - title: "interest"
+        payload: "/rateofinterestlink"
+      - title: "apply now"
+        payload: "/apply_now_loan"
+
+  utter_loan_products_button_three:
+  - text: "And"
+    buttons:
+      - title: "go back"
+        payload: "/main_node"
+
 
   utter_fee_charges:
   - text: "fee and charges"
@@ -370,14 +401,121 @@ responses:
   utter_deposit:
   - text: "You can apply for a deposit here: https://www.lankabangla.com/deposit/"
 
-  utter_loan:
-  - text: "You can apply for a loan here: https://www.lankabangla.com/loan/"
+  # utter_loan:
+  # - text: "You can apply for a loan here: https://www.lankabangla.com/loan/"
 
   utter_apply_now:
   - text: "You can apply now here: https://www.lankabangla.com/apply-now/"
 
   
+  utter_statement:
+  - custom:
+      payload: "buttonsPayload"
+      data:
+        type: "quickrepliesbuttons"
+        text: "Thank you sir for your request. You can send statement request through our FinSmart Mobile App or you may send request mail to myrequest#lankabangla.com. For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 (from Overseas). I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+        buttons:
+          - title: "Yes"
+            payload: "/product_information"
+          - title: "No"
+            payload: "/service_feedback"
+
+
+
+  utter_service_feedback:
+  - custom:
+      payload: "buttonsPayload"
+      data:
+        type: "quickrepliesbuttons"
+        text: "Thank you for being with LankaBanlga. Have a nice day."
+        buttons:
+          - title: "Go Back"
+            payload: "/greet"
+
+  # A QUICK REPLIES BUTTONS PAYLOAD
+  # utter_main_node:
+  # - custom:
+  #     payload: "buttonsPayload"
+  #     data:
+  #       type: "quickrepliesbuttons"
+  #       text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
+  #       buttons:
+  #         - title: "customer account information"
+  #           payload: "/existing_customer"
+  #         - title: "general information"
+  #           payload: "/new_customer"
+  #         - title: "home"
+  #           payload: "/greet"
+
+
+
+
+  utter_main_node:
+  - text: "text1"
+    buttons:
+      - title: "customer account information"
+        payload: "/existing_customer"
+      - title: "general information"
+        payload: "/new_customer"
+      - title: "home"
+        payload: "/greet"
+
+  # utter_one_button:
+  # - text: "text1"
+  #   buttons:
+  #     - title: "customer account information"
+  #       payload: "/existing_customer"
   
+  # utter_two_button:
+  # - text: "text1"
+  #   buttons:
+  #     - title: "customer account information"
+  #       payload: "/existing_customer"
+  #     - title: "general information"
+  #       payload: "/new_customer"
+
+  # utter_three_button:
+  # - text: "text1"
+  #   buttons:
+  #     - title: "customer account information"
+  #       payload: "/existing_customer"
+  #     - title: "general information"
+  #       payload: "/new_customer"
+  #     - title: "home"
+  #       payload: "/greet"
+
+  utter_credit_card_offers:
+  - text: "credit card offers"
+
+  utter_credit_card_offers_button_one:
+  - text: "credit card offers, please select"
+    buttons:
+      - title: "Latest offers"
+        payload: "/latest_offers"
+      - title: "discount privilege"
+        payload: "/discount_privilege"
+      - title: "Ezpay"
+        payload: "/ezpay" 
+
+  # utter_credit_card_offers_button_two:
+  # - text: "And"
+  #   buttons:
+      - title: "Go back"
+        payload: "/LBFL_offers"
+      - title: "Home"
+        payload: "/greet"
+
+  utter_credit_card_offers_quick_replies:
+  - text: "credit card offers, please select"
+    custom:
+      payload: "quickReplies"
+      data:
+        - title: "Yes"
+          payload: "/product_information"
+        - title: "No"
+          payload: "/service_feedback"
+
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

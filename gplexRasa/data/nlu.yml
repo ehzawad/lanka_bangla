@@ -178,3 +178,25 @@ nlu:
     - apply for the credit card
     - apply for the credit card service
     - apply for the credit card service now
+
+- intent: statement
+  examples: |
+    - I want to know about the statement
+    - statement
+    - statement is important
+    - ok statement
+
+
+- intent: service_feedback
+  examples: |
+    - I want to give feedback
+    - feedback
+    - feedback is important
+    - ok feedback
+
+- intent: credit_card_offers
+  examples: |
+    - I want to know about the credit card offers
+    - credit card offers
+    - credit card offers are important
+    - ok credit card offers

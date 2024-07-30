@@ -28,6 +28,8 @@ stories:
     - intent: apply_for_credit_card
     - intent: apply_for_loan
     - intent: apply_for_deposit
+    - intent: service_feedback
+    - intent: statement
     # - intent: our_services
     # - intent: demo
     # - intent: solution
