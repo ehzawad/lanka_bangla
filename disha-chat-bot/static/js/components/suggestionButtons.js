@@ -46,7 +46,7 @@ function showUrlLink(urlLinkData) {
 
 
 function showButtons(buttonsData) {
-    // const { text, type, buttons } = buttonsData;
+    const { text, type, buttons } = buttonsData;
 
     // if (type === 'quickrepliesbuttons') {
     //     console.log("convert it to quick replies");

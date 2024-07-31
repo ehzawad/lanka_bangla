@@ -200,3 +200,22 @@ nlu:
     - credit card offers
     - credit card offers are important
     - ok credit card offers
+
+- intent: about_lankabangla
+  examples: |
+    - I want to know about LankaBangla
+    - LankaBangla
+    - LankaBangla is important
+    - ok LankaBangla
+    - LankaBangla finance Limited
+    - What is LankaBangla
+    - LankaBangla finance
+    - Details to know about LankaBangla
+
+- intent: url_of_about_us_lankabangla
+  examples: |
+    - I want to know the URL of the about us page of LankaBangla
+    - URL of about us page of LankaBangla
+    - URL of about us page of LankaBangla finance Limited
+    - URL of about us page of LankaBangla finance
+    - URL of about us page of LankaBangla

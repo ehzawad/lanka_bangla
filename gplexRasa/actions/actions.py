@@ -41,10 +41,15 @@ class Action_Otions1(Action):
 
 
         elif tracker.get_intent_of_latest_message() == "credit_card_offers":
-            dispatcher.utter_message(response="utter_credit_card_offers")
+
             dispatcher.utter_message(response="utter_credit_card_offers_button_one")
             dispatcher.utter_message(response="utter_credit_card_offers_button_two")
             dispatcher.utter_message(response="utter_credit_card_offers_quick_replies")
+
+        elif tracker.get_intent_of_latest_message() == "deposit_products":
+
+            dispatcher.utter_message(response="utter_deposit_products_buttons")
+            dispatcher.utter_message(response="utter_deposit_products_quick_replies")
 
         elif tracker.get_intent_of_latest_message() == "demo":
             return [FollowupAction("detail_form")]
@@ -125,6 +130,9 @@ class Action_Otions1(Action):
 
         elif tracker.get_intent_of_latest_message() == "service_feedback":
             dispatcher.utter_message(response="utter_service_feedback")
+
+        elif tracker.get_intent_of_latest_message() == "about_lankabangla":
+            dispatcher.utter_message(response="utter_about_lankabangla")
 
 
 

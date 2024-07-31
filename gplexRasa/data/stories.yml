@@ -30,6 +30,7 @@ stories:
     - intent: apply_for_deposit
     - intent: service_feedback
     - intent: statement
+    - intent: about_lankabangla
     # - intent: our_services
     # - intent: demo
     # - intent: solution

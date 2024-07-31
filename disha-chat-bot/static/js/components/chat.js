@@ -216,11 +216,11 @@ function displayChatbotMessage(buttonsData) {
                     const {payload} = response[i].custom;
                     console.log(payload)
 
-                    if (payload === "multiple_buttons") {
-                        if (response[i].custom.data.length > 0) {
-                            addSuggestion(response[i].custom.data);
-                        }
-                    }
+                    // if (payload === "multiple_buttons") {
+                    //     if (response[i].custom.data.length > 0) {
+                    //         addSuggestion(response[i].custom.data);
+                    //     }
+                    // }
 
                     if (payload === "quickReplies") {
                         // check if the custom payload type is "quickReplies"

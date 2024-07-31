@@ -26,6 +26,8 @@ intents:
   - statement
   - service_feedback
   - credit_card_offers
+  - about_lankabangla
+  - url_of_about_us_lankabangla
 
   
 actions:
@@ -238,8 +240,25 @@ responses:
   utter_credit_card_products:
   - text: "credit card products"
 
-  utter_deposit_products:
-  - text: "deposit products"
+  utter_deposit_products_buttons:
+  - text: "we have a wide range of deposit products. Please select"
+    buttons:
+      - title: "general deposit details"
+        payload: "/general_deposit"
+      - title: "Shikha Product details for women"
+        payload: "/shikha_product"
+      - title: "Rate and Charges"
+        payload: "/deposit_rate_charges"
+
+  utter_deposit_products_quick_replies:
+  - text: "we have a wide range of deposit products. Please select"
+    custom:
+      payload: "quickReplies"
+      data:
+        - title: "Yes"
+          payload: "/product_information"
+        - title: "No"
+          payload: "/service_feedback"
 
   utter_loan_products:
   - text: "loan products"
@@ -515,6 +534,18 @@ responses:
         - title: "No"
           payload: "/service_feedback"
 
+  utter_about_lankabangla:
+  - custom:
+      payload: "buttonsPayload"
+      data:
+        text: "want to know more about Lanka Bangla?"
+        buttons:
+          - title: "About Us"
+            type: "urlLink"
+            url: "https://www.lankabangla.com/history-of-lankabangla/"
+            payload: "/url_of_about_us_lankabangla"
+          - title: "Go back to Home"
+            payload: "/main_node"
 
 session_config:
   session_expiration_time: 60
