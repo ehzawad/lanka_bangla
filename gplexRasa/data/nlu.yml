@@ -219,3 +219,61 @@ nlu:
     - URL of about us page of LankaBangla finance Limited
     - URL of about us page of LankaBangla finance
     - URL of about us page of LankaBangla
+
+- intent: chequebook
+  examples: |
+    - I want to know about the chequebook
+    - chequebook
+    - chequebook is important
+    - ok chequebook
+
+- intent: mastercard_BEFTN
+  examples: |
+    - I want to know about the mastercard BEFTN
+    - mastercard BEFTN
+    - mastercard BEFTN is important
+    - ok mastercard BEFTN
+
+- intent: BEFTN_registration_link
+  examples: |
+    - I want to know about the BEFTN registration
+    - BEFTN registration
+    - BEFTN registration is important
+    - ok BEFTN registration
+
+
+- intent: mastercard_chequebook
+  examples: |
+    - I want to know about the mastercard chequebook
+    - mastercard chequebook
+    - mastercard chequebook is important
+    - ok mastercard chequebook
+
+# - intent: visacard_chequebook
+#   examples: |
+#     - I want to know about the visacard chequebook
+#     - visacard chequebook
+#     - visacard chequebook is important
+#     - ok visacard chequebook
+
+- intent: shikhacard_chequebook
+  examples: |
+    - I want to know about the shikhacard chequebook
+    - shikhacard chequebook
+    - shikhacard chequebook is important
+    - ok shikhacard chequebook
+
+- intent: pin_change
+  examples: |
+    - I want to know about the pin
+    - pin
+    - pin is important
+    - ok pin
+
+
+- intent: deposit_offers
+  examples: |
+    - I want to know about the deposit offers
+    - deposit offers
+    - deposit offers are important
+    - ok deposit offers

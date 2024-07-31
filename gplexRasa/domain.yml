@@ -28,7 +28,14 @@ intents:
   - credit_card_offers
   - about_lankabangla
   - url_of_about_us_lankabangla
-
+  - mastercard_BEFTN
+  - BEFTN_registration_link
+  - chequebook
+  - mastercard_chequebook
+  - visacard_chequebook
+  - shikhacard_chequebook
+  - pin_change
+  - deposit_offers
   
 actions:
   - action_options1
@@ -53,6 +60,59 @@ actions:
 responses:
   utter_greet:
   - text: "Hey! How are you?"
+
+  utter_pin_change:
+  - text: "Thank you for your interest for your pin change request. You can email here at apply_now"
+
+  utter_pin_change_text:
+  - text: "for instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
+
+  utter_pin_change_quick_replies:
+  - text: "I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+    custom:
+      payload: "quickReplies"
+      data:
+        - title: "Yes"
+          payload: "/product_information"
+        - title: "No"
+          payload: "/service_feedback"
+
+  utter_chequebook:
+  - text: "thank you for your interest for your chequebook request."
+
+  utter_chequebook_quick_replies:
+  - text: "Please select your card type:"
+    custom:
+      payload: "quickReplies"
+      data:
+        - title: "Mastercard"
+          payload: "/mastercard_chequebook"
+        - title: "VISA card"
+          payload: "/visacard_chequebook"
+        - title: "Shikha Card"
+          payload: "/shikhacard_chequebook"
+
+
+  utter_mastercard_BEFTN:
+  - text: "Now you can transfer mastercard_BEFTN limit to your own Bank account through BEFTN"
+
+  utter_mastercard_BEFTN_buttons:
+  - text: "For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
+    buttons:
+    - title: "BEFTN registration"
+      type: "urlLink"
+      url: "https://www.lankabangla.com/BEFTN_registration"
+      payload: "/BEFTN_registration"
+
+  utter_mastercard_BEFTN_quick_replies:
+  - text: "I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+    custom:
+      payload: "quickReplies"
+      data:
+        - title: "Yes"
+          payload: "/product_information"
+        - title: "No"
+          payload: "/service_feedback"
 
   utter_apply_for_credit_card:
   - text: "You can apply now from our website directly"
@@ -83,6 +143,29 @@ responses:
       payload: "/loan_products"
     - title: "Go back"
       payload: "/product_information"
+
+  utter_deposit_offers_text:
+  - text: "deposit offers"
+
+  utter_deposit_offers_buttons:
+  - text: "deposit offers, please select"
+    buttons:
+      - title: "Latest offers"
+        payload: "/latest_offers"
+      - title: "go back"
+        payload: "/LBFL_offers"
+      - title: "home"
+        payload: "/home"
+
+  utter_deposit_offers_quick_replies:
+  - text: "i hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+    custom:
+      payload: "quickReplies"
+      data:
+        - title: "Yes"
+          payload: "/product_information"
+        - title: "No"
+          payload: "/service_feedback"
 
   # utter_atStart:
   # - text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
@@ -546,6 +629,26 @@ responses:
             payload: "/url_of_about_us_lankabangla"
           - title: "Go back to Home"
             payload: "/main_node"
+
+  utter_visacard_chequebook:
+  - text: "thank you for your interest for your VISA card chequebook."
+
+  utter_mastercard_chequebook:
+  - text: "thank you for your interest for your Mastercard chequebook."
+
+  utter_shikhacard_chequebook:
+  - text: "thank you for your interest for your Shikha card chequebook."
+
+  utter_visacard_chequebook_quick_replies:
+  - text: "For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas. I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+    custom:
+      payload: "quickReplies"
+      data:
+        - title: "Yes"
+          payload: "/product_information"
+        - title: "No"
+          payload: "/service_feedback"
+
 
 session_config:
   session_expiration_time: 60

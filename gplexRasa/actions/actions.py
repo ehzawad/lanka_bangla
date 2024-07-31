@@ -135,6 +135,34 @@ class Action_Otions1(Action):
             dispatcher.utter_message(response="utter_about_lankabangla")
 
 
+        elif tracker.get_intent_of_latest_message() == "visacard_chequebook":
+            dispatcher.utter_message(response="utter_visacard_chequebook")
+            dispatcher.utter_message(response="utter_visacard_chequebook_quick_replies")
+
+        # utter_mastercard_BEFTN
+        elif tracker.get_intent_of_latest_message() == "mastercard_BEFTN":
+            dispatcher.utter_message(response="utter_mastercard_BEFTN")
+            dispatcher.utter_message(response="utter_mastercard_BEFTN_buttons")
+            dispatcher.utter_message(response="utter_mastercard_BEFTN_quick_replies")
+
+
+        # chequebook
+        elif tracker.get_intent_of_latest_message() == "chequebook":
+            dispatcher.utter_message(response="utter_chequebook")
+            dispatcher.utter_message(response="utter_chequebook_quick_replies")
+
+        # pin_change
+        elif tracker.get_intent_of_latest_message() == "pin_change":
+            dispatcher.utter_message(response="utter_pin_change")
+            dispatcher.utter_message(response="utter_pin_change_text")
+            dispatcher.utter_message(response="utter_pin_change_quick_replies")
+
+
+        # deposit_offers
+        elif tracker.get_intent_of_latest_message() == "deposit_offers":
+            dispatcher.utter_message(response="utter_deposit_offers_text")
+            dispatcher.utter_message(response="utter_deposit_offers_buttons")
+            dispatcher.utter_message(response="utter_deposit_offers_quick_replies")
 
         return []
     

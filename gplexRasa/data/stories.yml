@@ -31,6 +31,9 @@ stories:
     - intent: service_feedback
     - intent: statement
     - intent: about_lankabangla
+    - intent: visacard_chequebook
+    - intent: pin_change
+    - intent: deposit_offers
     # - intent: our_services
     # - intent: demo
     # - intent: solution
