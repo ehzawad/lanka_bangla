@@ -1,655 +1,429 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - greet
-  - main_node
-  - product_information
-  - read_privacy_policy
-  - existing_customer
-  - new_customer
-  - credit_card
-  - deposit
-  - loan
-  - apply_now
-  - fee_charges
-  - rateofinterest
-  - credit_card_products
-  - deposit_products
-  - loan_products
-  - payment_solutions
-  - branches
-  - contact_center
-  - offers
-  - apply_for_credit_card
-  - apply_for_deposit
-  - apply_for_loan
-  - statement
-  - service_feedback
-  - credit_card_offers
-  - about_lankabangla
-  - url_of_about_us_lankabangla
-  - mastercard_BEFTN
-  - BEFTN_registration_link
-  - chequebook
-  - mastercard_chequebook
-  - visacard_chequebook
-  - shikhacard_chequebook
-  - pin_change
-  - deposit_offers
-  
+- BEFTN_registration_link
+- LBFL_offers
+- about_lankabangla
+- apply_for_credit_card
+- apply_for_deposit
+- apply_for_loan
+- apply_now
+- board_of_directors
+- branches
+- chequebook
+- contact_center
+- credit_card
+- credit_card_offers
+- credit_card_products
+- deposit
+- deposit_offers
+- deposit_products
+- existing_customer
+- fee_charges
+- greet
+- lankabangla_management
+- loan
+- loan_products
+- main_node
+- management_team
+- managing_director
+- mastercard_BEFTN
+- mastercard_chequebook
+- new_customer
+- nlu_fallback
+- offers
+- payment_solutions
+- pin_change
+- product_information
+- rateofinterest
+- read_privacy_policy
+- service_feedback
+- shikhacard_chequebook
+- statement
+- url_of_about_us_lankabangla
+- visacard_chequebook
 actions:
-  - action_options1
-  - action_options2
-  - action_options3
-  - action_options4
-  - action_custom_fallback
-  # - validate_detail_form
-  # - validate_talk_to_llm_form
-  # - action_utter_talkllm
-  # - action_utter_location
-  # - action_utter_ceo
-  # - action_utter_services_or_products
-  # - action_utter_use_cases
-  # - action_utter_why_choose_gplex
-  # - action_utter_about_clients
-  # - action_utter_client_feedback
-  # - action_utter_contact_info
-  # - actio_utter_used_technology
-  # - action_end_detail_form
-
+- action_custom_fallback
+- action_options1
+- action_options2
+- action_options3
+- action_options4
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
+  - text: Hey! How are you?
   utter_pin_change:
-  - text: "Thank you for your interest for your pin change request. You can email here at apply_now"
-
+  - text: Thank you for your interest for your pin change request. You can email here at apply_now
   utter_pin_change_text:
-  - text: "for instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
-
+  - text: for instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas
   utter_pin_change_quick_replies:
-  - text: "I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+  - text: I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?
     custom:
-      payload: "quickReplies"
+      payload: quickReplies
       data:
-        - title: "Yes"
-          payload: "/product_information"
-        - title: "No"
-          payload: "/service_feedback"
-
+      - title: Yes
+        payload: /product_information
+      - title: No
+        payload: /service_feedback
   utter_chequebook:
-  - text: "thank you for your interest for your chequebook request."
-
+  - text: thank you for your interest for your chequebook request.
   utter_chequebook_quick_replies:
-  - text: "Please select your card type:"
+  - text: 'Please select your card type:'
     custom:
-      payload: "quickReplies"
+      payload: quickReplies
       data:
-        - title: "Mastercard"
-          payload: "/mastercard_chequebook"
-        - title: "VISA card"
-          payload: "/visacard_chequebook"
-        - title: "Shikha Card"
-          payload: "/shikhacard_chequebook"
-
-
+      - title: Mastercard
+        payload: /mastercard_chequebook
+      - title: VISA card
+        payload: /visacard_chequebook
+      - title: Shikha Card
+        payload: /shikhacard_chequebook
+  utter_lankabangla_management:
+  - custom:
+      payload: buttonsPayload
+      data:
+        text: LankaBangla Management
+        buttons:
+        - title: Board of Directors
+          type: urlLink
+          url: https://www.lankabangla.com/board-of-directors/
+          payload: /board_of_directors
+        - title: Management Committee
+          type: urlLink
+          url: https://www.lankabangla.com/management-team/
+          payload: /management_team
+        - title: Managing directors & CEO
+          type: urlLink
+          url: https://www.lankabangla.com/
+          payload: /managing_directors_committee
+        - title: Go back
+          payload: /greet
   utter_mastercard_BEFTN:
-  - text: "Now you can transfer mastercard_BEFTN limit to your own Bank account through BEFTN"
-
+  - text: Now you can transfer mastercard_BEFTN limit to your own Bank account through BEFTN
   utter_mastercard_BEFTN_buttons:
-  - text: "For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
+  - text: For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas
     buttons:
-    - title: "BEFTN registration"
-      type: "urlLink"
-      url: "https://www.lankabangla.com/BEFTN_registration"
-      payload: "/BEFTN_registration"
-
+    - title: BEFTN registration
+      type: urlLink
+      url: https://www.lankabangla.com/BEFTN_registration
+      payload: /BEFTN_registration
   utter_mastercard_BEFTN_quick_replies:
-  - text: "I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+  - text: I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?
     custom:
-      payload: "quickReplies"
+      payload: quickReplies
       data:
-        - title: "Yes"
-          payload: "/product_information"
-        - title: "No"
-          payload: "/service_feedback"
-
+      - title: Yes
+        payload: /product_information
+      - title: No
+        payload: /service_feedback
   utter_apply_for_credit_card:
-  - text: "You can apply now from our website directly"
-    buttons: 
-    - title: "Apply Now"
-      payload: "/apply_now"
-    - title: "credit card products"
-      payload: "/credit_card_products"
-    - title: "Go back"
-      payload: "/product_information"
-
-  utter_apply_for_deposit:
-  - text: "You can apply now from our website directly"
-    buttons: 
-    - title: "Apply Now"
-      payload: "/apply_now"
-    - title: "deposit products"
-      payload: "/deposit_products"
-    - title: "Go back"
-      payload: "/product_information"
-
-  utter_apply_for_loan:
-  - text: "You can apply now from our website directly"
-    buttons: 
-    - title: "Apply Now"
-      payload: "/apply_now"
-    - title: "loan products"
-      payload: "/loan_products"
-    - title: "Go back"
-      payload: "/product_information"
-
-  utter_deposit_offers_text:
-  - text: "deposit offers"
-
-  utter_deposit_offers_buttons:
-  - text: "deposit offers, please select"
+  - text: You can apply now from our website directly
     buttons:
-      - title: "Latest offers"
-        payload: "/latest_offers"
-      - title: "go back"
-        payload: "/LBFL_offers"
-      - title: "home"
-        payload: "/home"
-
+    - title: Apply Now
+      payload: /apply_now
+    - title: credit card products
+      payload: /credit_card_products
+    - title: Go back
+      payload: /product_information
+  utter_apply_for_deposit:
+  - text: You can apply now from our website directly
+    buttons:
+    - title: Apply Now
+      payload: /apply_now
+    - title: deposit products
+      payload: /deposit_products
+    - title: Go back
+      payload: /product_information
+  utter_apply_for_loan:
+  - text: You can apply now from our website directly
+    buttons:
+    - title: Apply Now
+      payload: /apply_now
+    - title: loan products
+      payload: /loan_products
+    - title: Go back
+      payload: /product_information
+  utter_deposit_offers_text:
+  - text: deposit offers
+  utter_deposit_offers_buttons:
+  - text: deposit offers, please select
+    buttons:
+    - title: Latest offers
+      payload: /latest_offers
+    - title: go back
+      payload: /LBFL_offers
+    - title: home
+      payload: /home
   utter_deposit_offers_quick_replies:
-  - text: "i hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+  - text: i hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?
     custom:
-      payload: "quickReplies"
+      payload: quickReplies
       data:
-        - title: "Yes"
-          payload: "/product_information"
-        - title: "No"
-          payload: "/service_feedback"
-
-  # utter_atStart:
-  # - text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
-  #   buttons:
-  #   - title: "Read privacy policy"
-  #     payload: "/read_privacy_policy"
-  #   - title: "Agree"
-  #     payload: "/main_node"
-  #   - title: "Disagree"
-  #     payload: "/product_information"
-
+      - title: Yes
+        payload: /product_information
+      - title: No
+        payload: /service_feedback
   utter_atStart:
   - custom:
-      payload: "buttonsPayload"
+      payload: buttonsPayload
       data:
-        type: "quickrepliesbuttons"
         text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
         buttons:
-          - title: "Read privacy policy"
-            type: "urlLink"
-            url: "https://www.lankabangla.com/privacy-policy/"
-            payload: "/read_privacy_policy"
-          - title: "Agree"
-            payload: "/main_node"
-          - title: "Disagree"
-            payload: "/product_information"
-
-
+        - title: Read privacy policy
+          type: urlLink
+          url: https://www.lankabangla.com/privacy-policy/
+          payload: /read_privacy_policy
+        - title: Agree
+          payload: /main_node
+        - title: Disagree
+          payload: /product_information
   utter_loan:
   - custom:
-      payload: "buttonsPayload"
+      payload: buttonsPayload
       data:
-        type: "quickrepliesbuttons"
-        text: "thank you for being with lankabangla. Surely I can help you. For your loan information, we need to check your identity first. Please choose SMS or email to get the OTP"
+        type: quickrepliesbuttons
+        text: thank you for being with lankabangla. Surely I can help you. For your loan information, we need to check your identity first. Please choose SMS or email to get the OTP
         buttons:
-          - title: "SMS"
-            payload: "/loan_sms"
-          - title: "Email"
-            payload: "/loan_email"
-
-
-  
-  
-  # utter_read_privacy_policy:
-  # - text: "https://www.lankabangla.com/privacy-policy/"
-
-
-  # utter_main_node:
-  # - custom:
-  #     payload: "buttonsPayload"
-  #     data:
-  #       type: "quickrepliesbuttons"
-  #       text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
-  #       buttons:
-  #         - title: "customer account information"
-  #           payload: "/existing_customer"
-  #         - title: "general information"
-  #           payload: "/new_customer"
-  #         - title: "home"
-  #           payload: "/greet"
-
-  # utter_main_node:         
-  # - text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
-  #   buttons:
-  #   - title: "customer account information"
-  #     payload: "/existing_customer"
-  #   - title: "general information"
-  #     payload: "/new_customer"
-  #   - title: "home"
-  #     payload: "/greet"
-
-
-  # utter_main_node:
-  #   - custom:
-  #       payload: "cardsCarousel"
-  #       data:
-  #         - title: "customer account information"
-  #           image: "https://example.com/credit_card.jpg"
-  #           subtitle: "customer account information"
-  #           buttons:
-  #             - title: "Learn More"
-  #               payload: "/existing_customer"
-  #         - title: "general information"
-  #           image: "https://example.com/deposit.jpg"
-  #           subtitle: "general information"
-  #           buttons:
-  #             - title: "general information"
-  #               payload: "/new_customer"
-  #         - title: "home"
-  #           image: "https://example.com/loan.jpg"
-  #           subtitle: "home"
-  #           buttons:
-  #             - title: "home"
-  #               payload: "/greet"
-
-
-  # utter_main_node:
-  # - custom:
-  #     payload: "cardsCarousel"
-  #     data:
-  #       - title: "Customer Account Information"
-  #         image: "https://picsum.photos/600/400/"
-  #         subtitle: "Access and manage your account details"
-  #         buttons:
-  #           - title: "Learn More"
-  #             payload: "/existing_customer"
-  #           - title: "Check Balance"
-  #             payload: "/check_balance"
-  #           - title: "Recent Transactions"
-  #             payload: "/recent_transactions"
-
-  #           - title: "Learn More"
-  #             payload: "/existing_customer"
-  #           - title: "Check Balance"
-  #             payload: "/check_balance"
-  #           - title: "Recent Transactions"
-  #             payload: "/recent_transactions"
-
-  #       - title: "General Information"
-  #         image: "https://picsum.photos/600/400/"
-  #         subtitle: "Explore our services and offerings"
-  #         buttons:
-  #           - title: "Products"
-  #             payload: "/products_info"
-  #           - title: "Services"
-  #             payload: "/services_info"
-  #       - title: "Home"
-  #         image: "https://picsum.photos/600/400/"
-  #         subtitle: "Return to main menu"
-  #         buttons:
-  #           - title: "Home"
-  #             payload: "/greet"
-  #           - title: "Help"
-  #             payload: "/help"
-
-
-  # utter_product_information:
-  # - text: "product information"
-
+        - title: SMS
+          payload: /loan_sms
+        - title: Email
+          payload: /loan_email
   utter_product_information:
   - custom:
-      payload: "cardsCarousel"
+      payload: cardsCarousel
       data:
-        - title: "product Information"
-          image: "https://picsum.photos/600/400/"
-          subtitle: "We offer various products as per customer requirements. To know more about our products, please choose from below"
-          buttons:
-            - title: "credit card"
-              payload: "/credit_card_products"
-            - title: "deposit scheme"
-              payload: "/deposit_products"
-            - title: "Loan"
-              payload: "/loan_products"
-
+      - title: product Information
+        image: https://picsum.photos/600/400/
+        subtitle: We offer various products as per customer requirements. To know more about our products, please choose from below
+        buttons:
+        - title: credit card
+          payload: /credit_card_products
+        - title: deposit scheme
+          payload: /deposit_products
+        - title: Loan
+          payload: /loan_products
   utter_credit_card_products:
-  - text: "credit card products"
-
+  - text: credit card products
   utter_deposit_products_buttons:
-  - text: "we have a wide range of deposit products. Please select"
+  - text: we have a wide range of deposit products. Please select
     buttons:
-      - title: "general deposit details"
-        payload: "/general_deposit"
-      - title: "Shikha Product details for women"
-        payload: "/shikha_product"
-      - title: "Rate and Charges"
-        payload: "/deposit_rate_charges"
-
+    - title: general deposit details
+      payload: /general_deposit
+    - title: Shikha Product details for women
+      payload: /shikha_product
+    - title: Rate and Charges
+      payload: /deposit_rate_charges
   utter_deposit_products_quick_replies:
-  - text: "we have a wide range of deposit products. Please select"
+  - text: we have a wide range of deposit products. Please select
     custom:
-      payload: "quickReplies"
+      payload: quickReplies
       data:
-        - title: "Yes"
-          payload: "/product_information"
-        - title: "No"
-          payload: "/service_feedback"
-
+      - title: Yes
+        payload: /product_information
+      - title: No
+        payload: /service_feedback
   utter_loan_products:
-  - text: "loan products"
-
+  - text: loan products
   utter_loan_products_button_one:
-  - text: "loan products, please select"
+  - text: loan products, please select
     buttons:
-      - title: "Retail"
-        payload: "/retail"
-      - title: "/SME"
-        payload: "/SME"
-      - title: "Corporate Financial service"
-        payload: /corporate_financial_service
-
+    - title: Retail
+      payload: /retail
+    - title: /SME
+      payload: /SME
+    - title: Corporate Financial service
+      payload: /corporate_financial_service
   utter_loan_products_button_two:
-  - text: "And"
+  - text: And
     buttons:
-      - title: "SHIKHA"
-        payload: "/shikhalink"
-      - title: "interest"
-        payload: "/rateofinterestlink"
-      - title: "apply now"
-        payload: "/apply_now_loan"
-
+    - title: SHIKHA
+      payload: /shikhalink
+    - title: interest
+      payload: /rateofinterestlink
+    - title: apply now
+      payload: /apply_now_loan
   utter_loan_products_button_three:
-  - text: "And"
+  - text: And
     buttons:
-      - title: "go back"
-        payload: "/main_node"
-
-
+    - title: go back
+      payload: /main_node
   utter_fee_charges:
-  - text: "fee and charges"
-
+  - text: fee and charges
   utter_rateofinterest:
-  - text: "rate of interest"
-
-  # utter_existing_customer:
-  # - text: "please select your product type"
-  #   buttons:
-  #   - title: "credit card"
-  #     payload: "/credit_card"
-  #   - title: "deposit"
-  #     payload: "/deposit"
-  #   - title: "Loan"
-  #     payload: "/loan"
-  #   - title: "apply now"
-  #     payload: "/apply_now"
-  #   - title: "go back"
-  #     payload: "/main_node"
-
-
-
-  # utter_existing_customer:
-  # - custom:
-  #     payload: "quickReplies"
-  #     data:
-  #       - title: "Credit Card"
-  #         payload: "/credit_card"
-  #       - title: "Deposit"
-  #         payload: "/deposit"
-  #       - title: "Loan"
-  #         payload: "/loan"
-  #       - title: "Apply Now"
-  #         payload: "/apply_now"
-  #       - title: "Go Back"
-  #         payload: "/main_node"
-
-
+  - text: rate of interest
   utter_existing_customer:
-    - text: "Please select your product type"
-      # buttons:
-      #   - title: "Credit Card"
-      #     payload: "/credit_card"
-      #   - title: "Deposit"
-      #     payload: "/deposit"
-      #   - title: "Loan"
-      #     payload: "/loan"
-      #   - title: "Apply Now"
-      #     payload: "/apply_now"
-      #   - title: "Go Back"
-      #     payload: "/main_node"
-      custom:
-        payload: "quickReplies"
-        data:
-          - title: "Credit Card"
-            payload: "/credit_card"
-          - title: "Deposit"
-            payload: "/deposit"
-          - title: "Loan"
-            payload: "/loan"
-          - title: "Apply Now"
-            payload: "/apply_now"
-          - title: "Go Back"
-            payload: "/main_node"
-
+  - text: Please select your product type
+    custom:
+      payload: quickReplies
+      data:
+      - title: Credit Card
+        payload: /credit_card
+      - title: Deposit
+        payload: /deposit
+      - title: Loan
+        payload: /loan
+      - title: Apply Now
+        payload: /apply_now
+      - title: Go Back
+        payload: /main_node
   utter_new_customer:
-    - text: "Thank you for your interest in lankabangla, please select"
-      buttons:
-          - title: "products"
-            payload: "/product_information"
-          - title: "fee & charges"
-            payload: "/fee_charges"
-          - title: "rate of interest"
-            payload: "/rateofinterest"
-      custom:
-        payload: "quickReplies"
-        data:
-          - title: "payment solutions"
-            payload: "/payment_solutions"
-          - title: "branches"
-            payload: "/branches"
-          - title: "contact center"
-            payload: "/contact_center"
-          - title: "offers"
-            payload: "/offers"
-          - title: "apply now"
-            payload: "/apply_now"
-          - title: "go back"
-            payload: "/main_node"
-
-
-  # utter_payment_solutions:
-  # - text: "payment solutions"
-  
+  - text: Thank you for your interest in lankabangla, please select
+    buttons:
+    - title: products
+      payload: /product_information
+    - title: fee & charges
+      payload: /fee_charges
+    - title: rate of interest
+      payload: /rateofinterest
+    custom:
+      payload: quickReplies
+      data:
+      - title: payment solutions
+        payload: /payment_solutions
+      - title: branches
+        payload: /branches
+      - title: contact center
+        payload: /contact_center
+      - title: offers
+        payload: /offers
+      - title: apply now
+        payload: /apply_now
+      - title: go back
+        payload: /main_node
   utter_payment_solutions:
-  - text: "Make Payment from anywhere, anytime! For details, please select:"
+  - text: 'Make Payment from anywhere, anytime! For details, please select:'
     buttons:
-    - title: "Credit Card"
-      payload: "/credit_card"
-    - title: "Deposit"
-      payload: "/deposit"
-    - title: "Go Back"
-      payload: "/main_node"
-
-  # utter_branches:
-  # - text: "branches"
-
+    - title: Credit Card
+      payload: /credit_card
+    - title: Deposit
+      payload: /deposit
+    - title: Go Back
+      payload: /main_node
   utter_branch_links:
-  - text: "lankabangla.com/branches"
-
+  - text: lankabangla.com/branches
   utter_branches:
-  - text: "we have 27 branches across the country to serve our customers. Branch visiting hour: Sunday to  Thrusday from 10:00 am to 4:00 pm. Friday & Saturday is closed. For more details, please select:"
+  - text: 'we have 27 branches across the country to serve our customers. Branch visiting hour: Sunday to  Thrusday from 10:00 am to 4:00 pm. Friday & Saturday is closed. For more details, please select:'
     buttons:
-    - title: "our branches"
-      payload: "/branch_links"
-    - title: "Go Back"
-      payload: "/new_customer"
-
+    - title: our branches
+      payload: /branch_links
+    - title: Go Back
+      payload: /new_customer
   utter_contact_center:
-  - text: "contact center"
-
+  - custom:
+      payload: buttonsPayload
+      data:
+        text: Our contact center is open for 24/7 to serve our customers. Plese call 16235 or +8809611016325 (from overseas). You can send your request/query to myrequest@lankabangla.com
+        buttons:
+        - title: Home
+          payload: /greet
   utter_offers:
-  - text: "offers"
-
+  - text: offers
   utter_credit_card:
-  - text: "You can apply for a credit card here: https://www.lankabangla.com/credit-card/"
-
+  - text: 'You can apply for a credit card here: https://www.lankabangla.com/credit-card/'
   utter_deposit:
-  - text: "You can apply for a deposit here: https://www.lankabangla.com/deposit/"
-
-  # utter_loan:
-  # - text: "You can apply for a loan here: https://www.lankabangla.com/loan/"
-
+  - text: 'You can apply for a deposit here: https://www.lankabangla.com/deposit/'
   utter_apply_now:
-  - text: "You can apply now here: https://www.lankabangla.com/apply-now/"
-
-  
+  - text: 'You can apply now here: https://www.lankabangla.com/apply-now/'
   utter_statement:
   - custom:
-      payload: "buttonsPayload"
+      payload: buttonsPayload
       data:
-        type: "quickrepliesbuttons"
-        text: "Thank you sir for your request. You can send statement request through our FinSmart Mobile App or you may send request mail to myrequest#lankabangla.com. For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 (from Overseas). I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+        type: quickrepliesbuttons
+        text: Thank you sir for your request. You can send statement request through our FinSmart Mobile App or you may send request mail to myrequest#lankabangla.com. For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 (from Overseas). I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?
         buttons:
-          - title: "Yes"
-            payload: "/product_information"
-          - title: "No"
-            payload: "/service_feedback"
-
-
-
+        - title: Yes
+          payload: /product_information
+        - title: No
+          payload: /service_feedback
   utter_service_feedback:
   - custom:
-      payload: "buttonsPayload"
+      payload: buttonsPayload
       data:
-        type: "quickrepliesbuttons"
-        text: "Thank you for being with LankaBanlga. Have a nice day."
+        type: quickrepliesbuttons
+        text: Thank you for being with LankaBanlga. Have a nice day.
         buttons:
-          - title: "Go Back"
-            payload: "/greet"
-
-  # A QUICK REPLIES BUTTONS PAYLOAD
-  # utter_main_node:
-  # - custom:
-  #     payload: "buttonsPayload"
-  #     data:
-  #       type: "quickrepliesbuttons"
-  #       text: "Please click on Account/General Information & select to see details, and For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas"
-  #       buttons:
-  #         - title: "customer account information"
-  #           payload: "/existing_customer"
-  #         - title: "general information"
-  #           payload: "/new_customer"
-  #         - title: "home"
-  #           payload: "/greet"
-
-
-
-
+        - title: Go Back
+          payload: /greet
   utter_main_node:
-  - text: "text1"
+  - text: text1
     buttons:
-      - title: "customer account information"
-        payload: "/existing_customer"
-      - title: "general information"
-        payload: "/new_customer"
-      - title: "home"
-        payload: "/greet"
-
-  # utter_one_button:
-  # - text: "text1"
-  #   buttons:
-  #     - title: "customer account information"
-  #       payload: "/existing_customer"
-  
-  # utter_two_button:
-  # - text: "text1"
-  #   buttons:
-  #     - title: "customer account information"
-  #       payload: "/existing_customer"
-  #     - title: "general information"
-  #       payload: "/new_customer"
-
-  # utter_three_button:
-  # - text: "text1"
-  #   buttons:
-  #     - title: "customer account information"
-  #       payload: "/existing_customer"
-  #     - title: "general information"
-  #       payload: "/new_customer"
-  #     - title: "home"
-  #       payload: "/greet"
-
-  utter_credit_card_offers:
-  - text: "credit card offers"
-
-  utter_credit_card_offers_button_one:
-  - text: "credit card offers, please select"
-    buttons:
-      - title: "Latest offers"
-        payload: "/latest_offers"
-      - title: "discount privilege"
-        payload: "/discount_privilege"
-      - title: "Ezpay"
-        payload: "/ezpay" 
-
-  # utter_credit_card_offers_button_two:
-  # - text: "And"
-  #   buttons:
-      - title: "Go back"
-        payload: "/LBFL_offers"
-      - title: "Home"
-        payload: "/greet"
-
-  utter_credit_card_offers_quick_replies:
-  - text: "credit card offers, please select"
+    - title: customer account information
+      payload: /existing_customer
+    - title: general information
+      payload: /new_customer
+    - title: home
+      payload: /greet
+  utter_no_data_found:
+  - text: 'I am sorry, I could not find any data for you. Please select from the options below:'
     custom:
-      payload: "quickReplies"
+      payload: quickReplies
       data:
-        - title: "Yes"
-          payload: "/product_information"
-        - title: "No"
-          payload: "/service_feedback"
-
+      - title: Home
+        payload: /greet
+      - title: Contact Center
+        payload: /contact_center
+  utter_credit_card_offers:
+  - text: credit card offers
+  utter_credit_card_offers_button_one:
+  - text: credit card offers, please select
+    buttons:
+    - title: Latest offers
+      payload: /latest_offers
+    - title: discount privilege
+      payload: /discount_privilege
+    - title: Ezpay
+      payload: /ezpay
+    - title: Go back
+      payload: /LBFL_offers
+    - title: Home
+      payload: /greet
+  utter_LBFL_offers:
+  - text: LBFL offers
+  utter_LBFL_offers_quick_replies:
+  - text: Choose your desired products
+    custom:
+      payload: quickReplies
+      data:
+      - title: credit card offers
+        payload: /credit_card_offers
+      - title: deposit offers
+        payload: /deposit_offers
+      - title: go back
+        payload: /main_node
+  utter_credit_card_offers_quick_replies:
+  - text: credit card offers, please select
+    custom:
+      payload: quickReplies
+      data:
+      - title: Yes
+        payload: /product_information
+      - title: No
+        payload: /service_feedback
   utter_about_lankabangla:
   - custom:
-      payload: "buttonsPayload"
+      payload: buttonsPayload
       data:
-        text: "want to know more about Lanka Bangla?"
+        text: want to know more about Lanka Bangla?
         buttons:
-          - title: "About Us"
-            type: "urlLink"
-            url: "https://www.lankabangla.com/history-of-lankabangla/"
-            payload: "/url_of_about_us_lankabangla"
-          - title: "Go back to Home"
-            payload: "/main_node"
-
+        - title: About Us
+          type: urlLink
+          url: https://www.lankabangla.com/history-of-lankabangla/
+          payload: /url_of_about_us_lankabangla
+        - title: Go back to Home
+          payload: /main_node
   utter_visacard_chequebook:
-  - text: "thank you for your interest for your VISA card chequebook."
-
+  - text: thank you for your interest for your VISA card chequebook.
   utter_mastercard_chequebook:
-  - text: "thank you for your interest for your Mastercard chequebook."
-
+  - text: thank you for your interest for your Mastercard chequebook.
   utter_shikhacard_chequebook:
-  - text: "thank you for your interest for your Shikha card chequebook."
-
+  - text: thank you for your interest for your Shikha card chequebook.
   utter_visacard_chequebook_quick_replies:
-  - text: "For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas. I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?"
+  - text: For instant support you may also call our 24/7 Contact Center @ 16325 or +8809611 016325 from Overseas. I hope you have received your expected service. Thank you for allowing me to assist you. Do you need any other support?
     custom:
-      payload: "quickReplies"
+      payload: quickReplies
       data:
-        - title: "Yes"
-          payload: "/product_information"
-        - title: "No"
-          payload: "/service_feedback"
-
-
+      - title: Yes
+        payload: /product_information
+      - title: No
+        payload: /service_feedback
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

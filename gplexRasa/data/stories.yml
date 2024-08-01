@@ -9,7 +9,7 @@ stories:
   - or:
     - intent: main_node
     - intent: product_information
-    - intent: read_privacy_policy
+    #- intent: read_privacy_policy
     - intent: credit_card
     - intent: deposit
     - intent: loan
@@ -34,6 +34,13 @@ stories:
     - intent: visacard_chequebook
     - intent: pin_change
     - intent: deposit_offers
+    - intent: lankabangla_management
+    - intent: LBFL_offers
+    - intent: no_data_found
+    # - intent: board_of_directors
+    # - intent: management_team
+    # - intent: managing_directors_committee
+
     # - intent: our_services
     # - intent: demo
     # - intent: solution
@@ -145,3 +152,8 @@ stories:
   
 
 
+
+- story: interactive_story_1
+  steps:
+  - intent: nlu_fallback
+  - action: action_custom_fallback
