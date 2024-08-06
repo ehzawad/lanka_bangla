@@ -165,7 +165,7 @@ responses:
   - custom:
       payload: buttonsPayload
       data:
-        text: "Hi there, Welcome to Lanka Bangla! Nice to meet you. I'd love to help you out: What would you like to know? Choose one of the options below:"
+        text: "Hello, how can I help you?</br> Please read and agree to the terms and condition"
         buttons:
         - title: Read privacy policy
           type: urlLink
@@ -342,8 +342,13 @@ responses:
         buttons:
         - title: Go Back
           payload: /greet
+
+
+  utter_main_node_text:
+  - text: 'Please click on Account or General information and select to see details'
+
   utter_main_node:
-  - text: text1
+  - text: 'For instant support you may also call our 24/7 contact center @ 16325 or +8809611 016325 from Overseas.'
     buttons:
     - title: customer account information
       payload: /existing_customer
@@ -351,6 +356,8 @@ responses:
       payload: /new_customer
     - title: home
       payload: /greet
+
+  
   utter_no_data_found:
   - text: 'I am sorry, I could not find any data for you. Please select from the options below:'
     custom:

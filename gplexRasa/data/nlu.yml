@@ -15,12 +15,36 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - Start Over
+    - Over 
+    - Stop 
+    - Go Back
+    - Home
+    - lets start 
+    - get start
+    - begin
+    - Lets begin
+    - Need help
+    - হেল্প দরকার 
+    - help dorkar
+    - hlw
+    - yo
+    - knock knock
+    - Hello
+    - হ্যালো
+    - helo
+    - hey
+    - hi 
+    - kind assistance 
+
+
 - intent: affirm
   examples: |
     - Yes
     - Yes please
     - Please tell me
     - Please
+
 - intent: read_privacy_policy
   examples: |
     - I want to read the privacy policy
@@ -30,7 +54,16 @@ nlu:
     - main node
     - this is a main node
     - main menu
-    - haha main node
+    - account details
+    - outstanding koto
+    - balance
+    - account balance
+    - account information
+    - general information
+    - general info
+    - বিল
+    - জেনারেল ইনফরমেশন
+    
 - intent: product_information
   examples: |
     - I want to know about your products

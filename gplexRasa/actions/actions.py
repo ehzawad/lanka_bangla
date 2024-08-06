@@ -40,6 +40,7 @@ class Action_Otions1(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         if tracker.get_intent_of_latest_message() == "main_node":
+            dispatcher.utter_message(response="utter_main_node_text")
             dispatcher.utter_message(response="utter_main_node")
             # dispatcher.utter_message(response="utter_one_button")
             # dispatcher.utter_message(response="utter_two_button")
