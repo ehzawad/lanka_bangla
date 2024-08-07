@@ -8,6 +8,7 @@ stories:
   - action: utter_atStart
   - or:
     - intent: main_node
+    - intent: main_node_text
     - intent: product_information
     #- intent: read_privacy_policy
     - intent: credit_card
@@ -20,6 +21,10 @@ stories:
     - intent: rateofinterest
     - intent: credit_card_products
     - intent: deposit_products
+    - intent: credit_card_status
+    - intent: credit_card_offers
+    - intent: credit_card_sms
+    - intent: credit_card_email
     - intent: loan_products
     - intent: payment_solutions
     - intent: branches
@@ -37,6 +42,7 @@ stories:
     - intent: lankabangla_management
     - intent: LBFL_offers
     - intent: no_data_found
+    
     # - intent: board_of_directors
     # - intent: management_team
     # - intent: managing_directors_committee
@@ -152,8 +158,3 @@ stories:
   
 
 
-
-- story: interactive_story_1
-  steps:
-  - intent: nlu_fallback
-  - action: action_custom_fallback

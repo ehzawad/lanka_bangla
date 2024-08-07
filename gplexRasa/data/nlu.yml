@@ -63,7 +63,7 @@ nlu:
     - general info
     - বিল
     - জেনারেল ইনফরমেশন
-    
+
 - intent: product_information
   examples: |
     - I want to know about your products
@@ -83,6 +83,28 @@ nlu:
     - haha existing customer
     - well existing customer
     - existing customer
+    - Outstanding koto
+    - Balance
+    - Last due date
+    - Expiry Date
+    - Maturity Date
+    - Maturity Amount
+    - Installment Amount
+    - EMI Amount
+    - Next Installment Date
+    - Issue Date
+    - Outstanding
+    - Current outstanding
+    - ইস্যু ডেট
+    - মেয়াদ
+    - উত্তীর্ণ
+    - ম্যাচুরিটি ডেট
+    - কিস্তি এমাউন্ট
+    - অউটস্টান্ডিং
+    - শেষ ডেট
+    - এমাউন্ট
+    - Credit card outstanding
+    - Bill
 - intent: new_customer
   examples: |
     - I am a new customer
@@ -95,7 +117,7 @@ nlu:
     - Dont
     - No I dont want
     - Nop
-- intent: credit_card
+- intent: credit_card_status
   examples: |
     - I want to know about the credit card
     - credit card

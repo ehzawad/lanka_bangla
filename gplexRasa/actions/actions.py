@@ -46,6 +46,15 @@ class Action_Otions1(Action):
             # dispatcher.utter_message(response="utter_two_button")
             # dispatcher.utter_message(response="utter_three_button")
 
+        elif tracker.get_intent_of_latest_message() == "credit_card_status":
+            dispatcher.utter_message(response="utter_credit_card_status_text")
+            dispatcher.utter_message(response="utter_credit_card_status_quick_replies")
+
+        elif tracker.get_intent_of_latest_message() == "credit_card_sms":
+            dispatcher.utter_message(text="credit card sms")
+
+        elif tracker.get_intent_of_latest_message() == "credit_card_email":
+            dispatcher.utter_message(text="credit card email")
 
         elif tracker.get_intent_of_latest_message() == "loan_products":
             # dispatcher.utter_message(response="utter_loan_products")
@@ -192,6 +201,8 @@ class Action_Otions1(Action):
         # no_data_found
         elif tracker.get_intent_of_latest_message() == "no_data_found":
             dispatcher.utter_message(response="utter_no_data_found")
+
+        
 
         
         # 

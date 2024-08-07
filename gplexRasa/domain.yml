@@ -11,8 +11,10 @@ intents:
 - branches
 - chequebook
 - contact_center
-- credit_card
+- credit_card_status
 - credit_card_offers
+- credit_card_sms
+- credit_card_email
 - credit_card_products
 - deposit
 - deposit_offers
@@ -255,7 +257,7 @@ responses:
       payload: quickReplies
       data:
       - title: Credit Card
-        payload: /credit_card
+        payload: /credit_card_status
       - title: Deposit
         payload: /deposit
       - title: Loan
@@ -316,7 +318,19 @@ responses:
           payload: /greet
   utter_offers:
   - text: offers
-  utter_credit_card:
+  utter_credit_card_status_text:
+  - text: 'Thank you for using LankaBangla Credit card.'
+
+  utter_credit_card_status_quick_replies:
+  - text: 'We need to check your identity first. Please choose SMS or email to get the OTP verification code.'
+    custom:
+      payload: quickReplies
+      data:
+      - title: SMS
+        payload: /credit_card_sms
+      - title: Email
+        payload: /credit_card_email
+
   - text: 'You can apply for a credit card here: https://www.lankabangla.com/credit-card/'
   utter_deposit:
   - text: 'You can apply for a deposit here: https://www.lankabangla.com/deposit/'
