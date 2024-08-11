@@ -43,8 +43,11 @@ class ActionResetCreditCardStatusForm(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         print("reset credit card status form====================")
 
+        print(tracker.slots)
+        print("====reset credit card status form====================")
+        print(tracker.active_loop)
         # set all the slots to None
-        dispatcher.utter_message(text=" please tell me your number")
+        # dispatcher.utter_message(text=" please tell me your number")
         return [SlotSet("number_or_email", None), SlotSet("otp", None)]
     
 
@@ -64,7 +67,9 @@ class ValidateCreditCardStatusForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("validate_number_or_email")
         last_text = tracker.latest_message["text"]
-        print(tracker)
+        print(tracker.slots)
+        print("========validate_number_or_email====================")
+        print(tracker.active_loop)
         print("last text", last_text)
         if len(last_text) < 3:
             dispatcher.utter_message(text="please tell me your 11 digit number or email")
@@ -83,8 +88,9 @@ class ValidateCreditCardStatusForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         print("validate_otp")
         last_text = tracker.latest_message["text"]
-        print("last text", last_text)
-        print(tracker)
+        print(tracker.slots)
+        print("========validate_otp====================")
+        print(tracker.active_loop)
         if len(last_text) != 6:
             dispatcher.utter_message(text="make sure you have a valid 6 digit OTP")
             return {"otp": None}
