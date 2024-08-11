@@ -43,11 +43,40 @@ intents:
 - statement
 - url_of_about_us_lankabangla
 - visacard_chequebook
+
+forms:
+  credit_card_status_form:
+    required_slots:
+    - number_or_email
+    - otp
+
+slots:
+  number_or_email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: credit_card_status_form
+        requested_slot: number_or_email
+
+  otp:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: credit_card_status_form
+        requested_slot: otp
+
 actions:
 - action_custom_fallback
 - action_options1
 - action_options2
 - action_options3
+- action_credit_card_status_form
+- action_reset_credit_card_status_form
+- validate_credit_card_status_form
 - action_options4
 responses:
   utter_greet:
@@ -331,7 +360,6 @@ responses:
       - title: Email
         payload: /credit_card_email
 
-  - text: 'You can apply for a credit card here: https://www.lankabangla.com/credit-card/'
   utter_deposit:
   - text: 'You can apply for a deposit here: https://www.lankabangla.com/deposit/'
   utter_apply_now:

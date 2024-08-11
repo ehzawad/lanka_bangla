@@ -23,7 +23,7 @@ stories:
     - intent: deposit_products
     - intent: credit_card_status
     - intent: credit_card_offers
-    - intent: credit_card_sms
+    # - intent: credit_card_sms
     - intent: credit_card_email
     - intent: loan_products
     - intent: payment_solutions
@@ -146,7 +146,10 @@ stories:
 #   steps:
 #   - intent: used_technology   
 #   - action: actio_utter_used_technology 
-  
+# - story: credit_card_status_form haha
+#   steps:
+#   - intent: credit_card_sms
+#   - action: action_credit_card_status_form
 
 
 

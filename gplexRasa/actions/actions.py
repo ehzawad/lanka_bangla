@@ -3,6 +3,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction
+from rasa_sdk.events import SlotSet
 from rasa_sdk.types import DomainDict
 import requests
 
@@ -29,6 +30,91 @@ class ActionCustomFallback(Action):
         dispatcher.utter_message(text=fallback_message)
 
         return []
+    
+
+# action_reset_credit_card_status_form
+class ActionResetCreditCardStatusForm(Action):
+        
+    def name(self) -> Text:
+        return "action_reset_credit_card_status_form"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        print("reset credit card status form====================")
+
+        # set all the slots to None
+        dispatcher.utter_message(text=" please tell me your number")
+        return [SlotSet("number_or_email", None), SlotSet("otp", None)]
+    
+
+# ValidateCreditCardStatusForm
+# here validation is simple, just to make sure nothing empty
+class ValidateCreditCardStatusForm(FormValidationAction):
+
+    def name(self) -> Text:
+        return "validate_credit_card_status_form"
+    
+    def validate_number_or_email(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        print("validate_number_or_email")
+        last_text = tracker.latest_message["text"]
+        print(tracker)
+        print("last text", last_text)
+        if len(last_text) < 3:
+            dispatcher.utter_message(text="please tell me your 11 digit number or email")
+            return {"number_or_email": None}
+        else:
+            dispatcher.utter_message(text="please tell me your mobile number")
+            return {"number_or_email": last_text}
+        
+
+    def validate_otp(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        print("validate_otp")
+        last_text = tracker.latest_message["text"]
+        print("last text", last_text)
+        print(tracker)
+        if len(last_text) != 6:
+            dispatcher.utter_message(text="make sure you have a valid 6 digit OTP")
+            return {"otp": None}
+        else:
+            dispatcher.utter_message(text="please tell me your 6 digit otp")
+            return {"otp": last_text}
+            
+
+
+
+# # action_credit_card_status_form
+# class ActionCreditCardStatusForm(Action):
+    
+#         def name(self) -> Text:
+#             return "action_credit_card_status_form"
+    
+#         def run(self, dispatcher: CollectingDispatcher,
+#                 tracker: Tracker,
+#                 domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+            
+#             if tracker.get_intent_of_latest_message() == "credit_card_sms":
+#                 dispatcher.utter_message(text="credit card sms====================")
+
+#                 dispatcher.utter_message(response="utter_credit_card_status_form")
+#             # FollowupAction for credit_card_status_form
+
+#                 #return [FollowupAction("credit_card_status_form")]
+
+                
+#             return []
 
 class Action_Otions1(Action):
 
@@ -50,8 +136,10 @@ class Action_Otions1(Action):
             dispatcher.utter_message(response="utter_credit_card_status_text")
             dispatcher.utter_message(response="utter_credit_card_status_quick_replies")
 
-        elif tracker.get_intent_of_latest_message() == "credit_card_sms":
-            dispatcher.utter_message(text="credit card sms")
+        # elif tracker.get_intent_of_latest_message() == "credit_card_sms":
+        #     # dispatcher.utter_message(text="credit card sms")
+        #     # FollowupAction for credit_card_status_form
+        #     return [FollowupAction("action_reset_credit_card_status_form")]
 
         elif tracker.get_intent_of_latest_message() == "credit_card_email":
             dispatcher.utter_message(text="credit card email")
@@ -74,8 +162,8 @@ class Action_Otions1(Action):
             dispatcher.utter_message(response="utter_deposit_products_buttons")
             dispatcher.utter_message(response="utter_deposit_products_quick_replies")
 
-        elif tracker.get_intent_of_latest_message() == "demo":
-            return [FollowupAction("detail_form")]
+        # elif tracker.get_intent_of_latest_message() == "credit_card_sms":
+        #     return [FollowupAction("action_reset_credit_card_status_form")]
         
         elif tracker.get_intent_of_latest_message() == "product_information":
             dispatcher.utter_message(response="utter_product_information")
