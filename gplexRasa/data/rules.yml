@@ -1,23 +1,19 @@
 version: "3.1"
 rules:
 
-- rule: opt and data
+- rule: Activate form
   steps:
   - intent: credit_card_sms
-  - action: action_reset_credit_card_status_form
-  - action: credit_card_status_form
+  - action: otp_sms_form
+  - active_loop: otp_sms_form
+
+- rule: Submit form
+  condition:
+  - active_loop: otp_sms_form
+  steps:
+  - action: otp_sms_form
+  - active_loop: null
   - slot_was_set:
     - requested_slot: null
-
-# - rule: opt and data
-#   steps:
-#   - intent: credit_card_sms
-#   - action: action_reset_credit_card_status_form
-#   - action: credit_card_status_form
-#   - slot_was_set:
-#     - requested_slot: number_or_email
-#     - number_or_email: "1234567890"
-#   - slot_was_set:
-#     - requested_slot: otp
-#     - otp: "1234"
-#   - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values

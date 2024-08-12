@@ -16,16 +16,16 @@ nlu:
     - goodevening
     - good afternoon
     - Start Over
-    - Over 
-    - Stop 
+    - Over
+    - Stop
     - Go Back
     - Home
-    - lets start 
+    - lets start
     - get start
     - begin
     - Lets begin
     - Need help
-    - হেল্প দরকার 
+    - হেল্প দরকার
     - help dorkar
     - hlw
     - yo
@@ -33,18 +33,13 @@ nlu:
     - Hello
     - হ্যালো
     - helo
-    - hey
-    - hi 
-    - kind assistance 
-
-
+    - kind assistance
 - intent: affirm
   examples: |
     - Yes
     - Yes please
     - Please tell me
     - Please
-
 - intent: read_privacy_policy
   examples: |
     - I want to read the privacy policy
@@ -63,7 +58,6 @@ nlu:
     - general info
     - বিল
     - জেনারেল ইনফরমেশন
-
 - intent: product_information
   examples: |
     - I want to know about your products
@@ -123,6 +117,27 @@ nlu:
     - credit card
     - credit card is important
     - ok credit card
+- intent: inform
+  examples: |
+    - ehzawad@kgmail.com
+    - 01712345678
+    - HDSLSFDH
+    - 324234234324
+    - 123456
+    - harare@gmail.com
+    - F454509
+    - 01705216306
+    - 01834578994
+    - 01987654321
+    - 01521457896
+    - 01698765432
+    - 01705216333
+    - 01834578933
+    - 987654
+    - 778899
+    - 121212
+    - 780945
+    - 457585
 - intent: deposit
   examples: |
     - I want to know about the deposit
@@ -141,12 +156,6 @@ nlu:
     - I want to apply for the service
     - now apply
     - apply now
-# - intent: credit_card_products
-#   examples: |
-#     - I want to know about the credit card products
-#     - credit card products
-#     - credit card products are important
-#     - ok credit card products
 - intent: deposit_products
   examples: |
     - I want to know about the deposit products
@@ -195,12 +204,6 @@ nlu:
     - apply for the deposit
     - apply for the deposit service
     - apply for the deposit service now
-# - intent: apply_for_credit_card
-#   examples: |
-#     - I want to apply for the credit card
-#     - apply for the credit card
-#     - apply for the credit card service
-#     - apply for the credit card service now
 - intent: statement
   examples: |
     - I want to know about the statement
@@ -213,12 +216,6 @@ nlu:
     - feedback
     - feedback is important
     - ok feedback
-# - intent: credit_card_offers
-#   examples: |
-#     - I want to know about the credit card offers
-#     - credit card offers
-#     - credit card offers are important
-#     - ok credit card offers
 - intent: about_lankabangla
   examples: |
     - I want to know about LankaBangla
@@ -314,7 +311,6 @@ nlu:
     - No data found for this query
     - No data found for this intent
     - No data found for this intent query
-    
 - intent: nlu_fallback
   examples: |
     - tumi ki koro
