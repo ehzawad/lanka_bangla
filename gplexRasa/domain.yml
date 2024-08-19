@@ -17,7 +17,11 @@ intents:
 - credit_card_products
 - credit_card_sms
 - credit_card_status
+- deposit_status
+- loan_status
+- loan_sms
 - deposit
+- deposit_sms
 - deposit_offers
 - deposit_products
 - existing_customer
@@ -67,6 +71,23 @@ slots:
       conditions:
       - active_loop: otp_sms_form
         requested_slot: otp
+
+
+  otp_verified:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+    mappings:
+    - type: custom
+
+
+  service_type:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+
+
 actions:
 - action_options1
 - utter_submit
@@ -77,6 +98,11 @@ actions:
 - action_options4
 - utter_greet
 - validate_otp_sms_form
+- action_reset_otp_form_slots
+- action_service_type_credit_card
+- action_service_type_deposit
+- action_service_type_loan
+
 entities:
 - otp
 responses:
@@ -84,10 +110,10 @@ responses:
   - text: Please give your mobile number for sending you an OTP?
   utter_ask_otp:
   - text: Please check your six digit OTP?
-  utter_submit:
-  - text: Ok. Thanks!
-  utter_slots_values:
-  - text: I will remember that your name is {otp_sender_sms} {otp}!
+  #utter_submit:
+  #- text: Ok. Thanks!
+  #utter_slots_values:
+  #- text: I will remember that your name is {otp_sender_sms} {otp}!
   utter_greet:
   - text: Hey! How are you?
   utter_pin_change:
@@ -297,9 +323,9 @@ responses:
       - title: Credit Card
         payload: /credit_card_status
       - title: Deposit
-        payload: /deposit
+        payload: /deposit_status
       - title: Loan
-        payload: /loan
+        payload: /loan_status
       - title: Apply Now
         payload: /apply_now
       - title: Go Back
@@ -356,6 +382,8 @@ responses:
           payload: /greet
   utter_offers:
   - text: offers
+
+
   utter_credit_card_status_text:
   - text: Thank you for using LankaBangla Credit card.
   utter_credit_card_status_quick_replies:
@@ -367,8 +395,37 @@ responses:
         payload: /credit_card_sms
       - title: Email
         payload: /credit_card_email
+
+  utter_deposit_status_text:
+  - text: Thank you for using LankaBangla Deposit scheme. Obviously I can help you.
+
+  utter_deposit_status_quick_replies:
+  - text: We need to check your identity first. Please choose SMS or email to get the OTP verification code.
+    custom:
+      payload: quickReplies
+      data:
+      - title: SMS
+        payload: /deposit_sms
+      - title: Email
+        payload: /deposit_email
+
+  utter_loan_status_text:
+  - text: Thank you for using LankaBangla Loan scheme. Obviously I can help you.
+
+  utter_loan_status_quick_replies:
+  - text: We need to check your identity first. Please choose SMS or email to get the OTP verification code.
+    custom:
+      payload: quickReplies
+      data:
+      - title: SMS
+        payload: /loan_sms
+      - title: Email
+        payload: /loan_email
+    
+
   utter_deposit:
   - text: 'You can apply for a deposit here: https://www.lankabangla.com/deposit/'
+
   utter_apply_now:
   - text: 'You can apply now here: https://www.lankabangla.com/apply-now/'
   utter_statement:
@@ -456,7 +513,7 @@ responses:
         buttons:
         - title: About Us
           type: urlLink
-          url: https://www.lankabangla.com/history-of-lankabangla/
+          url: https://www.lankabangla.com/about-us/
           payload: /url_of_about_us_lankabangla
         - title: Go back to Home
           payload: /main_node

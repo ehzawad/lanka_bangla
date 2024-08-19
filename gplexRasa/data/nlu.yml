@@ -156,6 +156,14 @@ nlu:
     - I want to apply for the service
     - now apply
     - apply now
+    - Apply new
+    - Account opening 
+    - apply for Deposit
+    - Apply for Credit card
+    - Apply for Loan
+    - Apply for dps
+    - apply for card
+
 - intent: deposit_products
   examples: |
     - I want to know about the deposit products
@@ -226,6 +234,15 @@ nlu:
     - What is LankaBangla
     - LankaBangla finance
     - Details to know about LankaBangla
+    - company LankaBangla ki
+    - Details of LankaBangla
+    - LankaBangla Finance Limited
+    - LBFL,About LankaBangla
+    - LankaBangla Finance
+    - লংকাবাংলা ফাইন্যান্স 
+    - লংকাবাংলা 
+    - LankaBangla ki dhoroner company?
+    - লংকাবাংলা ফাইন্যান্স কি ধরণের প্রতিষ্ঠান?
 - intent: url_of_about_us_lankabangla
   examples: |
     - I want to know the URL of the about us page of LankaBangla

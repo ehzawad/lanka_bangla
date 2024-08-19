@@ -22,6 +22,7 @@ stories:
     - intent: credit_card_products
     - intent: deposit_products
     - intent: credit_card_status
+    - intent: deposit_status
     - intent: credit_card_offers
     # - intent: credit_card_sms
     - intent: credit_card_email
@@ -46,33 +47,3 @@ stories:
 
   - action: action_options1
  
-
-- story: interactive_story_1
-  steps:
-  - intent: credit_card_status
-  - action: action_options1
-  - intent: credit_card_sms
-  - intent: credit_card_sms
-  - action: otp_sms_form
-  - active_loop: otp_sms_form
-  - slot_was_set:
-    - requested_slot: otp_sender_sms
-  - intent: inform
-  - slot_was_set:
-    - otp_sender_sms: '01705216306'
-  - action: otp_sms_form
-  - slot_was_set:
-    - otp_sender_sms: '01705216306'
-  - slot_was_set:
-    - requested_slot: otp
-  - intent: inform
-  - slot_was_set:
-    - otp: '457585'
-  - action: otp_sms_form
-  - slot_was_set:
-    - otp: '457585'
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: utter_submit
-  - action: utter_slots_values

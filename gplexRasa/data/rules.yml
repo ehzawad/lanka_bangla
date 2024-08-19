@@ -1,9 +1,24 @@
 version: "3.1"
 rules:
 
-- rule: Activate form
+- rule: Activate form credit_card_sms
   steps:
   - intent: credit_card_sms
+  - action: action_service_type_credit_card
+  - action: otp_sms_form
+  - active_loop: otp_sms_form
+
+- rule: Activate form deposit_sms
+  steps:
+  - intent: deposit_sms
+  - action: action_service_type_deposit
+  - action: otp_sms_form
+  - active_loop: otp_sms_form
+
+- rule: Activate form loan_sms
+  steps:
+  - intent: loan_sms
+  - action: action_service_type_loan
   - action: otp_sms_form
   - active_loop: otp_sms_form
 
@@ -15,5 +30,6 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_submit
-  - action: utter_slots_values
+  # - action: utter_submit
+  # - action: utter_slots_values
+  - action: action_reset_otp_form_slots
