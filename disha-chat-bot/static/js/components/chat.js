@@ -39,79 +39,19 @@ function getBotResponse(text) {
     botResponse = `<img class="botAvatar" src="./static/img/bot-ai-logo.png"/><span class="botMsg">${text}</span><div class="clearfix"></div>`;
     return botResponse;
 }
-
-const fadeTimeout = 500; // Define fadeTimeout at the top level
-
-function displayChatbotMessage(buttonsData) {
-    const { text, type } = buttonsData[0] || buttonsData;
-    
-    if (type && text) {
-        let html = converter.makeHtml(text);
-        html = html
-            .replaceAll("<p>", "")
-            .replaceAll("</p>", "")
-            .replaceAll("<strong>", "<b>")
-            .replaceAll("</strong>", "</b>");
-        html = html.replace(/(?:\r\n|\r|\n)/g, "<br>");
-        
-        let botResponse = '';
-        
-        if (html.includes("<blockquote>") || 
-            html.includes("<img") || 
-            html.includes("<pre") || 
-            html.includes("<code>") ||
-            html.includes("<ul") ||
-            html.includes("<ol") ||
-            html.includes("<li") ||
-            html.includes("<h3")) {
             
-            if (html.includes("<blockquote>") || 
-                html.includes("<ul") ||
-                html.includes("<ol") ||
-                html.includes("<li") ||
-                html.includes("<h3")) {
-                html = html.replaceAll("<br>", "");
-            }
-            
-            if (html.includes("<img")) {
-                html = html.replaceAll("<img", '<img class="imgcard_mrkdwn" ');
-            }
-            
-            botResponse = getBotResponse(html);
-        } else {
-            botResponse = `
-                <div class="botAvatar">
-                    <div class="botAvatar-image">
-                        <img src="./static/img/disha.svg"/>
-                    </div>
-                    <p class="botMsg">${html}</p>
-                </div>
-                <div class="clearfix"></div>
-            `;
-        }
-        
-        $(botResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
-        scrollToBottomOfResults();
-    }
-}
 
-// Usage
-// displayChatbotMessage(buttonsData);
 
-/**
- * renders bot response on to the chat screen
- * @param {Array} response json array containing different types of bot response
- *
- * for more info: `https://rasa.com/docs/rasa/connectors/your-own-website#request-and-response-format`**/
- function setBotResponse(response) {
-    const fadeTimeout = 500;
-    // renders bot response after 500 milliseconds
+
+
+// zawad
+function setBotResponse(response) {
+    console.log("setBotResponse called with response:", response);
     setTimeout(() => {
         hideBotTyping();
         if (response.length < 1) {
-            // if there is no response from Rasa, send  fallback message to the user
+            console.log("Empty response, displaying fallback message");
             const fallbackMsg = "I am facing some issues, please try again later!!!";
-
             const BotResponse = `
                 <div class="botAvatar">
                     <div class="botAvatar-image">
@@ -120,19 +60,20 @@ function displayChatbotMessage(buttonsData) {
                     <p class="botMsg">${fallbackMsg}</p>
                 </div>
                 <div class="clearfix"></div>`;
-
-            $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
+            $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
             scrollToBottomOfResults();
         } else {
-            // if we get response from Rasa
-            console.log("here in the else block!", response);
+            console.log("Processing bot response");
+            for (let i = 0; i < response.length; i += 1) {
+                console.log(`Processing response item ${i}:`, response[i]);
 
-            for (let i = 0; i < response.length; i++) {
-                console.log(response, response.custom, response[i].custom, i, "Test custom");
-                // check if the response contains "text"
+                if (response[i].custom) {
+                    console.log("Custom payload detected:", response[i].custom);
+                }
+
                 if (Object.hasOwnProperty.call(response[i], "text")) {
+                    console.log("Text response detected:", response[i].text);
                     if (response[i].text != null) {
-                        // convert the text to markdown format using showdown.js(https://github.com/showdownjs/showdown);
                         let botResponse;
                         let html = converter.makeHtml(response[i].text);
                         html = html
@@ -141,23 +82,17 @@ function displayChatbotMessage(buttonsData) {
                             .replaceAll("<strong>", "<b>")
                             .replaceAll("</strong>", "</b>");
                         html = html.replace(/(?:\r\n|\r|\n)/g, "<br>");
-                        console.log(html);
-                        // check for blockquotes
+                        console.log("Processed HTML:", html);
+
                         if (html.includes("<blockquote>")) {
                             html = html.replaceAll("<br>", "");
                             botResponse = getBotResponse(html);
-                        }
-                        // check for image
-                        if (html.includes("<img")) {
+                        } else if (html.includes("<img")) {
                             html = html.replaceAll("<img", '<img class="imgcard_mrkdwn" ');
                             botResponse = getBotResponse(html);
-                        }
-                        // check for preformatted text
-                        if (html.includes("<pre") || html.includes("<code>")) {
+                        } else if (html.includes("<pre") || html.includes("<code>")) {
                             botResponse = getBotResponse(html);
-                        }
-                        // check for list text
-                        if (
+                        } else if (
                             html.includes("<ul") ||
                             html.includes("<ol") ||
                             html.includes("<li") ||
@@ -166,187 +101,99 @@ function displayChatbotMessage(buttonsData) {
                             html = html.replaceAll("<br>", "");
                             botResponse = getBotResponse(html);
                         } else {
-                            // if no markdown formatting found, render the text as it is.
-                            if (!botResponse) {
-                                botResponse = `
-                                    <div class="botAvatar">
-                                        <div class="botAvatar-image">
-                                            <img src="./static/img/disha.svg"/>
-                                        </div>
-                                        <p class="botMsg">${response[i].text}</p>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                `;
-                            }
-                        }
-                        // append the bot response on to the chat screen
-                        $(botResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
-                    }
-                }
-
-                // check if the response contains "images"
-                if (Object.hasOwnProperty.call(response[i], "image")) {
-                    if (response[i].image !== null) {
-                        const BotResponse = `<div class="singleCard"><img class="imgcard" src="${response[i].image}"></div><div class="clearfix">`;
-                        $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
-                    }
-                }
-
-                // check if the response contains "buttons"
-                if (Object.hasOwnProperty.call(response[i], "buttons")) {
-                    if (response[i].buttons.length > 0) {
-                        addSuggestion(response[i].buttons);
-                    }
-                }
-
-                // check if the response contains "attachment"
-                if (Object.hasOwnProperty.call(response[i], "attachment")) {
-                    if (response[i].attachment != null) {
-                        if (response[i].attachment.type === "video") {
-                            // check if the attachment type is "video"
-                            const video_url = response[i].attachment.payload.src;
-                            const BotResponse = `<div class="video-container"> <iframe src="${video_url}" frameborder="0" allowfullscreen></iframe> </div>`;
-                            $(BotResponse).appendTo(".chats").hide().fadeIn(fadeTimeout);
-                        }
-                    }
-                }
-
-                // check if the response contains "custom" message
-                if (Object.hasOwnProperty.call(response[i], "custom")) {
-                    const {payload} = response[i].custom;
-                    console.log(payload)
-
-                    // if (payload === "multiple_buttons") {
-                    //     if (response[i].custom.data.length > 0) {
-                    //         addSuggestion(response[i].custom.data);
-                    //     }
-                    // }
-
-                    if (payload === "quickReplies") {
-                        // check if the custom payload type is "quickReplies"
-                        // ehzawad
-
-                        const quickRepliesData = response[i].custom.data;
-                        showQuickReplies(quickRepliesData);
-                        return;
-                    }
-
-                    // check if the custom payload type is "pdf_attachment"
-                    if (payload === "pdf_attachment") {
-                        renderPdfAttachment(response[i]);
-                        return;
-                    }
-
-                    // check if the custom payload type is "dropDown"
-                    if (payload === "dropDown") {
-                        const dropDownData = response[i].custom.data;
-                        renderDropDwon(dropDownData);
-                        return;
-                    }
-
-                    // check if the custom payload type is "location"
-                    if (payload === "location") {
-                        $("#userInput").prop("disabled", true);
-                        getLocation();
-                        scrollToBottomOfResults();
-                        return;
-                    }
-
-                    // check if the custom payload type is "cardsCarousel"
-                    if (payload === "cardsCarousel") {
-                        const restaurantsData = response[i].custom.data;
-                        console.log("I am inside carosel", restaurantsData);
-                        showCardsCarousel(restaurantsData);
-                        return;
-                    }
-
-                    if (payload === "buttonsPayload") {
-                        const buttonsData = response[i].custom.data;
-                        console.log("quota strike")
-                        console.log(buttonsData)
-
-                        const { text, type, buttons } = buttonsData;
-                        console.log(`**text**: "${text}"`);
-                        console.log(`**type**: "${type}"`);
-
-                        let textbeforequickreplies;
-                        if (type === 'quickrepliesbuttons') {
-                            console.log("convert it to quick replies");
-
-                            textbeforequickreplies = `
+                            botResponse = `
                                 <div class="botAvatar">
                                     <div class="botAvatar-image">
                                         <img src="./static/img/disha.svg"/>
                                     </div>
-                                    <p class="botMsg">${text}</p>
+                                    <p class="botMsg">${response[i].text}</p>
                                 </div>
                                 <div class="clearfix"></div>
                             `;
-                            $(textbeforequickreplies).appendTo(".chats").hide().fadeIn(500);
-                            showQuickReplies(buttons);
-                            
-                        } else {
-                            showButtons(buttonsData);
                         }
-                    
-                        return;
-                    }
-
-                    if (payload === "urlLink") {
-                        const urlLinkData = response[i].custom.data;
-                        showUrlLink(urlLinkData);
-                        return;
-                    }
-
-                    // check if the custom payload type is "chart"
-                    if (payload === "chart") {
-                        const chartData = response[i].custom.data;
-                        const {
-                            title,
-                            labels,
-                            backgroundColor,
-                            chartsData,
-                            chartType,
-                            displayLegend,
-                        } = chartData;
-
-                        // pass the above variable to createChart function
-                        createChart(
-                            title,
-                            labels,
-                            backgroundColor,
-                            chartsData,
-                            chartType,
-                            displayLegend
-                        );
-
-                        // on click of expand button, render the chart in the charts modal
-                        $(document).on("click", "#expand", () => {
-                            createChartinModal(
-                                title,
-                                labels,
-                                backgroundColor,
-                                chartsData,
-                                chartType,
-                                displayLegend
-                            );
-                        });
-                        return;
-                    }
-
-                    // check of the custom payload type is "collapsible"
-                    if (payload === "collapsible") {
-                        const {data} = response[i].custom;
-                        // pass the data variable to createCollapsible function
-                        createCollapsible(data);
+                        console.log("Appending bot response to chat");
+                        $(botResponse).appendTo(".chats").hide().fadeIn(1000);
                     }
                 }
+
+                if (Object.hasOwnProperty.call(response[i], "image")) {
+                    console.log("Image response detected:", response[i].image);
+                    if (response[i].image !== null) {
+                        const BotResponse = `<div class="singleCard"><img class="imgcard" src="${response[i].image}"></div><div class="clearfix">`;
+                        $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+                    }
+                }
+
+                if (Object.hasOwnProperty.call(response[i], "buttons")) {
+                    console.log("Buttons detected:", response[i].buttons);
+                    if (response[i].buttons.length > 0) {
+                        console.log("Calling addSuggestion with buttons:", response[i].buttons);
+                        addSuggestion(response[i].buttons);
+                    }
+                }
+
+                if (Object.hasOwnProperty.call(response[i], "custom")) {
+                    const {payload} = response[i].custom;
+                    console.log("Custom payload type:", payload);
+                    if (payload === "quickReplies") {
+                        console.log("Quick replies detected:", response[i].custom.data);
+                        const quickRepliesData = response[i].custom.data;
+                        showQuickReplies(quickRepliesData);
+                    } else if (payload === "buttonsPayload") {
+                        console.log("Buttons payload detected:", response[i].custom.data);
+                        const { text, buttons } = response[i].custom.data;
+                        const botResponse = `
+                            <div class="botAvatar">
+                                <div class="botAvatar-image">
+                                    <img src="./static/img/disha.svg"/>
+                                </div>
+                                <p class="botMsg">${text}</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        `;
+                        $(botResponse).appendTo(".chats").hide().fadeIn(1000);
+                        addSuggestion(buttons);
+                    } else if (payload === "pdf_attachment") {
+                        console.log("PDF attachment detected");
+                        renderPdfAttachment(response[i]);
+                    } else if (payload === "dropDown") {
+                        console.log("Dropdown detected");
+                        const dropDownData = response[i].custom.data;
+                        renderDropDwon(dropDownData);
+                    } else if (payload === "location") {
+                        console.log("Location request detected");
+                        $("#userInput").prop("disabled", true);
+                        getLocation();
+                    } else if (payload === "cardsCarousel") {
+                        console.log("Cards carousel detected");
+                        const restaurantsData = response[i].custom.data;
+                        showCardsCarousel(restaurantsData);
+                    } else if (payload === "chart") {
+                        console.log("Chart detected");
+                        const chartData = response[i].custom.data;
+                        createChart(
+                            chartData.title,
+                            chartData.labels,
+                            chartData.backgroundColor,
+                            chartData.chartsData,
+                            chartData.chartType,
+                            chartData.displayLegend
+                        );
+                    } else if (payload === "collapsible") {
+                        console.log("Collapsible detected");
+                        createCollapsible(response[i].custom.data);
+                    }
+                }
+                
+                console.log("Scrolling to bottom of results");
+                scrollToBottomOfResults();
             }
-            scrollToBottomOfResults();
         }
+        console.log("Setting focus to user input");
         $(".usrInput").focus();
     }, 500);
 }
+
 
 /**
  * sends the user message to the rasa server,
