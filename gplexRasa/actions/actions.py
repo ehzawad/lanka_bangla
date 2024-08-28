@@ -27,6 +27,30 @@ import time
 #   - apply_now
 
 
+class ActionPrintInfo(Action):
+    def name(self) -> Text:
+        return "action_print_info"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Print the information
+        print(f"Next Action: {tracker.get_intent_of_latest_message()}")
+        print(f"Sender ID: {tracker.sender_id}")
+        print(f"Tracker: {tracker.current_state()}")
+        print(f"Domain: {domain}")
+
+        # check if it inside an active loop
+        if tracker.active_loop:
+            print(f"Active Loop: {tracker.active_loop}")
+            
+
+        # You can also send a message to the user if needed
+        dispatcher.utter_message(text="Information printed to console")
+
+        return []
+
 # action_service_type_credit_card
 class ActionServiceType(Action):
     def name(self) -> Text:
@@ -273,6 +297,9 @@ class ValidateOTPSmsForm(FormValidationAction):
 
         otp_sender_sms = tracker.get_slot("otp_sender_sms")
 
+        # check if it is inside an active loop
+        if tracker.active_loop:
+            print(f"Active Loop in validate_otp: {tracker.active_loop}")
         
         # Verify OTP
         if bank_api.verify_otp(otp_sender_sms, name):
@@ -416,8 +443,12 @@ class Action_Otions1(Action):
         elif tracker.get_intent_of_latest_message() == "loan_products":
 
             dispatcher.utter_message(response="utter_loan_products_button_one")
-
+            dispatcher.utter_message(response="utter_loan_products_button_two")
             dispatcher.utter_message(response="utter_loan_products_button_three")
+            dispatcher.utter_message(response="utter_loan_products_button_four")
+            dispatcher.utter_message(response="utter_loan_products_button_five")
+            dispatcher.utter_message(response="utter_loan_products_button_six")
+
 
 
         elif tracker.get_intent_of_latest_message() == "credit_card_offers":
@@ -460,7 +491,8 @@ class Action_Otions1(Action):
             dispatcher.utter_message(response="utter_existing_customer")
 
         elif tracker.get_intent_of_latest_message() == "new_customer":
-            dispatcher.utter_message(response="utter_new_customer")
+            # dispatcher.utter_message(response="utter_new_customer_buttons")
+            dispatcher.utter_message(response="utter_new_customer_quick_replies")
 
         elif tracker.get_intent_of_latest_message() == "deposit":
             dispatcher.utter_message(response="utter_deposit")
