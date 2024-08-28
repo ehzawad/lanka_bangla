@@ -90,6 +90,7 @@ slots:
 
 actions:
 - action_options1
+- action_print_info
 - utter_submit
 - utter_slots_values
 - action_custom_fallback
@@ -298,19 +299,53 @@ responses:
     - title: Corporate Financial service
       payload: /corporate_financial_service
   utter_loan_products_button_two:
-  - text: And
-    buttons:
-    - title: SHIKHA
-      payload: /shikhalink
-    - title: interest
-      payload: /rateofinterestlink
-    - title: apply now
-      payload: /apply_now_loan
+  - custom:
+      payload: buttonsPayload
+      data:
+        text: loan products, please select
+        buttons:
+        - title: Retail
+          type: urlLink
+          url: https://www.lankabangla.com/retail/
+          payload: /retail
+        - title: Ramiz
+          payload: /Ramiz
+        - title: Corporate Financial service
+          payload: /corporate_financial_service
+        - title: Go back
+          payload: /main_node
   utter_loan_products_button_three:
   - text: And
     buttons:
     - title: go back
       payload: /main_node
+
+  utter_loan_products_button_four:
+  - text: And
+    buttons:
+    - title: home
+      payload: /greet
+
+  utter_loan_products_button_five:
+  - text: loan products, please select
+    buttons:
+    - title: Retail
+      payload: /retail
+    - title: /SME
+      payload: /SME
+    - title: Corporate Financial service
+      payload: /corporate_financial_service
+
+  utter_loan_products_button_six:
+  - text: we have a wide range of deposit products. Please select
+    custom:
+      payload: quickReplies
+      data:
+      - title: Yes
+        payload: /product_information
+      - title: No
+        payload: /service_feedback
+
   utter_fee_charges:
   - text: fee and charges
   utter_rateofinterest:
@@ -330,30 +365,96 @@ responses:
         payload: /apply_now
       - title: Go Back
         payload: /main_node
-  utter_new_customer:
-  - text: Thank you for your interest in lankabangla, please select
-    buttons:
-    - title: products
-      payload: /product_information
-    - title: fee & charges
-      payload: /fee_charges
-    - title: rate of interest
-      payload: /rateofinterest
-    custom:
+  # utter_new_customer:
+  # - text: Thank you for your interest in lankabangla, please select
+  #   buttons:
+  #   - title: products
+  #     payload: /product_information
+  #   - title: fee & charges
+  #     payload: /fee_charges
+  #   - title: rate of interest
+  #     payload: /rateofinterest
+  #   custom:
+  #     payload: quickReplies
+  #     data:
+  #     - title: payment solutions
+  #       payload: /payment_solutions
+  #     - title: branches
+  #       payload: /branches
+  #     - title: contact center
+  #       payload: /contact_center
+  #     - title: offers
+  #       payload: /offers
+  #     - title: apply now
+  #       payload: /apply_now
+  #     - title: go back
+  #       payload: /main_node
+
+
+    # - custom:
+    #   payload: buttonsPayload
+    #   data:
+    #     text: want to know more about Lanka Bangla?
+    #     buttons:
+    #     - title: About Us
+    #       type: urlLink
+    #       url: https://www.lankabangla.com/about-us/
+    #       payload: /url_of_about_us_lankabangla
+    #     - title: Go back to Home
+    #       payload: /main_node
+
+  # buttonsPayload
+  utter_new_customer_buttons:
+  - custom:
+      payload: buttonsPayload
+      data:
+        text: Good day, Thank you for your interest in lankabangla, please select
+        buttons:
+        - title: products
+          payload: /product_information
+        - title: fee & charges
+          payload: /fee_charges
+        - title: rate of interest
+          payload: /rateofinterest
+        - title: payment solutions
+          payload: /payment_solutions
+        - title: branches
+          payload: /branches
+        - title: contact center
+          payload: /contact_center
+        - title: offers
+          payload: /offers
+        - title: apply now
+          payload: /apply_now
+        - title: go back
+          payload: /main_node
+
+  utter_new_customer_quick_replies:
+  - custom:
       payload: quickReplies
       data:
-      - title: payment solutions
-        payload: /payment_solutions
-      - title: branches
-        payload: /branches
-      - title: contact center
-        payload: /contact_center
-      - title: offers
-        payload: /offers
-      - title: apply now
-        payload: /apply_now
-      - title: go back
+      - title: About Us
+        payload: /url_of_about_us_lankabangla
+      - title: Go back to Home
         payload: /main_node
+  # - text: Thank you for your interest in lankabangla, please select
+
+  #   custom:
+  #     payload: quickReplies
+  #     data:
+  #     - title: payment solutions
+  #       payload: /payment_solutions
+  #     - title: branches
+  #       payload: /branches
+  #     - title: contact center
+  #       payload: /contact_center
+  #     - title: offers
+  #       payload: /offers
+  #     - title: apply now
+  #       payload: /apply_now
+  #     - title: go back
+  #       payload: /main_node
+
   utter_payment_solutions:
   - text: 'Make Payment from anywhere, anytime! For details, please select:'
     buttons:
